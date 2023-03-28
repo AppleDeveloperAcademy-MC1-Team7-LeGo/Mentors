@@ -52,7 +52,7 @@ struct SendingFourView: View {
                 // VStack-HStack-Button
                 Button(action: {}) {
                     VStack {
-                        Image(systemName: "CustomGrey")
+                        Image(systemName: "x.square.fill")
                             .foregroundColor(Color("CustomJjinYellow"))
                             .padding(.bottom, 7)
                         Text("첨부하지 않음")
