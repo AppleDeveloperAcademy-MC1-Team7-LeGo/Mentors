@@ -29,60 +29,62 @@ enum SelectedButtonType {
 struct Sending1: View {
     @State private var selectButton: SelectedButtonType = .none
     @State private var teamName: String = .init()
-
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var btnBack : some View {
+        Button(action: {
+        self.presentationMode.wrappedValue.dismiss()
+            
+        }) {
+        HStack {
+            Image(systemName: "chevron.backward")
+                .aspectRatio(contentMode: .fit)
+                .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
+            }
+        }
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
             Text("누가 보내는 사연인가요?")
-                .font(.system(size: 24, weight: .bold))
+                .font(Font.custom("Apple SD Gothic Neo", size: 24))
                 .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
+                .padding(.top, 40)
             
             HStack(spacing: 18) {
                 SelectableButton(
                     title: "팀", isSelected: selectButton == .team) {
                         selectButton = .team
                     }
-                    .frame(width: UIScreen.main.bounds.width / 2 - 26 - 9)
+                //                    .frame(width: UIScreen.main.bounds.width / 2 - 26 - 9)
                 
                 SelectableButton(
                     title: "개인", isSelected: selectButton == .personal) {
                         selectButton = .personal
                     }
-                    .frame(width: UIScreen.main.bounds.width / 2 - 26 - 9)
-                        
-                        
-                        //                    Button {
-                        //
-                        //                    } label: {
-                        //                        Text("팀")
-                        //                            .font(.system(size: 18, weight: .semibold))
-                        //                            .frame(width: UIScreen.main.bounds.width / 2 - 26, height: 48)
-                        //                            .background(Color(hex: "E5E2D7"))
-                        //                            .foregroundColor(Color(hex: "F9F9F9"))
-                        //                            .cornerRadius(10)
-                        //                    }
-                        //
-                        //                    Button {
-                        //
-                        //                    } label: {
-                        //                        Text("개인")
-                        //                            .font(.system(size: 18, weight: .semibold))
-                        //                            .frame(width: UIScreen.main.bounds.width / 2 - 26, height: 48)
-                        //                            .background(Color(hex: "E5E2D7"))
-                        //                            .foregroundColor(Color(hex: "F9F9F9"))
-                        //                            .cornerRadius(10)
-                        //                    }
-                        
-                    }
-                Spacer()
+                //                    .frame(width: UIScreen.main.bounds.width / 2 - 26 - 9)
             }
-        }
-        
-        
-        struct sending1_Previews: PreviewProvider {
-            static var previews: some View {
-                Sending1()
+            if selectButton == .team {
+                MentorsTextField()
+                    .padding(.top, 20)
             }
+            Spacer()
         }
+        .padding(.horizontal, 26)
+        
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: btnBack)
+        
+        .background(Color.init(hex: "F9F9F9"))
+        
     }
+}
+                    
+                    
+struct sending1_Previews: PreviewProvider {
+    static var previews: some View {
+        Sending1()
+    }
+}
+
