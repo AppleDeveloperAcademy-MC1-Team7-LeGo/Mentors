@@ -32,9 +32,10 @@ struct SelectableButton: View {
                 Text(title)
                 Spacer()
             }
+//            .font(Font.custom("Apple SD Gothic Neo"), size: 24)
             .frame(height: 48)
-            .background(isSelected ? Color.init(hex: "E5E2D7") : Color.init(hex: "E5E2D7"))
-            .foregroundColor(isSelected ? Color.init(hex: "F9F9F9") : Color.init(hex: "292929"))
+            .background(isSelected ? Color.init(hex: "F6D555") : Color.init(hex: "E5E2D7"))
+            .foregroundColor(isSelected ? Color.init(hex: "292929") : Color.init(hex: "F9F9F9"))
             .cornerRadius(10)
         }
     }
