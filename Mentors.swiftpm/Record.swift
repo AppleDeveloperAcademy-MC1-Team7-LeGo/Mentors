@@ -11,13 +11,13 @@ struct Record: View {
     
     @State var mentoringContent: String = ""
     
-    func customButton(buttonName: String, red: Double, green: Double, blue: Double) -> AnyView {
+    func customButton(buttonName: String, background_hex: String, foreground_hex: String) -> AnyView {
         return AnyView(Button(buttonName) { }
-            .frame(maxWidth: 160, maxHeight: 48)
-            .background(Color(red: red, green: green, blue: blue))
-            .foregroundColor(Color(red: 0.161, green: 0.161, blue: 0.161))
-            .font(.system(size: 18, weight: .semibold))
-            .cornerRadius(10)
+        .frame(maxWidth: 160, maxHeight: 48)
+        .background(Color(hex: background_hex))
+        .foregroundColor(Color(hex: foreground_hex))
+        .font(.system(size: 18, weight: .semibold))
+        .cornerRadius(10)
         )
     }
     
@@ -52,11 +52,11 @@ struct Record: View {
                 .multilineTextAlignment(.leading)
             HStack {
                 VStack {
-                    customButton(buttonName: "임시 저장", red: 0.965, green: 0.835, blue: 0.333)
+                    customButton(buttonName: "임시 저장", background_hex: "f6d555", foreground_hex: "292929")
                 }
                 .frame(maxWidth: 179, maxHeight: .infinity)
                 VStack {
-                    customButton(buttonName: "멘토링 완료", red: 0.898, green: 0.886, blue: 0.843)
+                    customButton(buttonName: "멘토링 완료", background_hex: "e5e2d7", foreground_hex: "292929")
                 }
                 .frame(maxWidth: 179, maxHeight: .infinity)
             }
