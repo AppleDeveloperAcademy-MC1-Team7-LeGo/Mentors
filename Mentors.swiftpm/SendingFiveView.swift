@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SendingFiveView: View {
+
     var body: some View {
         VStack(alignment: .leading) {
             
@@ -29,6 +30,7 @@ struct SendingFiveView: View {
             // KeyWords
             VStack(alignment: .leading) {
                 HStack {
+                    
                     SendingFiveModels_KeyWordView().padding(.trailing, 3)
                     SendingFiveModels_KeyWordView().padding(.trailing, 3)
                     SendingFiveModels_KeyWordView().padding(.trailing, 3)
