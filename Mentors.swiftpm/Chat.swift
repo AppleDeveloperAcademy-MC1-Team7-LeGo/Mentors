@@ -33,11 +33,12 @@ struct Chat: View {
                         
                         VStack(alignment: .leading, spacing: 2) {
                             Text("리이오")
-                                .font(.system(size: 10))
+                                .font(.sandoll(size: 10, weight: .medium))
                                 .foregroundColor(Color(hex: "292929"))
                                 .padding(.leading, 5)
                             Text("어떤 도움이 필요하신가요?")
                                 .font(.system(size: 14))
+                                .font(.sandoll(size: 14, weight: .medium))
                                 .padding(.vertical, 5)
                                 .padding(.horizontal, 10)
                                 .background(Color(hex: "F9F9F9"))
@@ -61,11 +62,11 @@ struct Chat: View {
                     HStack {
                         VStack(alignment: .trailing, spacing: 2) {
                             Text("LeGo")
-                                .font(.system(size: 10))
+                                .font(.sandoll(size: 10, weight: .medium))
                                 .foregroundColor(Color(hex: "292929"))
                                 .padding(.trailing, 5)
                             Text("팀원들이 너무 싸워요..")
-                                .font(.system(size: 14))
+                                .font(.sandoll(size: 14, weight: .medium))
                                 .padding(.vertical, 5)
                                 .padding(.horizontal, 11)
                                 .background(Color(hex: "FDF4D1"))
@@ -82,10 +83,10 @@ struct Chat: View {
                         Image(systemName: "calendar.circle.fill")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.white, Color(hex: "F6D555"))
-                            .font(.system(size: 20))
+                            .font(.sandoll(size: 20, weight: .medium))
                         
                         Text("3월 31일 (금) 오후 4:00")
-                            .font(.system(size: 14, weight: .bold))
+                            .font(.sandoll(size: 14, weight: .bold))
                             .foregroundColor(Color(hex: "292929"))
                         Spacer()
                     }
@@ -94,11 +95,11 @@ struct Chat: View {
                     
                     HStack {
                         Text("멘토 리이오")
-                            .font(.system(size: 14, weight: .semibold))
+                            .font(.sandoll(size: 14, weight: .semibold))
                             .foregroundColor(Color(hex: "292929"))
                         
                         Text("(와)과 멘토링 약속을 잡았어요.")
-                            .font(.system(size: 14))
+                            .font(.sandoll(size: 14, weight: .medium))
                             .foregroundColor(Color(hex: "292929"))
                     }
                     .padding(.leading, 28)
@@ -127,6 +128,7 @@ struct Chat: View {
                         } label: {
                             Image(systemName: isMoreFunctionsShowing && !focusMessageField ? "minus" : "plus")
                                 .font(.system(size: 24, weight: .regular))
+                                .font(.sandoll(size: 24, weight: .regular))
                                 .foregroundColor(Color(hex: "F6D555"))
                         }
                         
