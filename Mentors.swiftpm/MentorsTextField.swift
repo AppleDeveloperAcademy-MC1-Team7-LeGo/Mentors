@@ -16,6 +16,7 @@ struct MentorsTextField: View {
             TextField("", text: $text)
                 .placeholder(when: text.isEmpty, placeholder: {
                     Text("팀 이름을 정확하게 적어주세요")
+                        .fontWeight(.medium)
                         .foregroundColor(Color.init(hex: "AAA48E"))
                 })
                 .padding(.horizontal, 6)
