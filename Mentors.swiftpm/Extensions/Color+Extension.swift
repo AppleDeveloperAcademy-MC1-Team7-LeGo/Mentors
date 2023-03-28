@@ -1,6 +1,6 @@
 //
-//  Color.swift
-//  Mentors
+//  Color+Extension.swift
+//  Extensions
 //
 //  Created by 제나 on 2023/03/27.
 //
