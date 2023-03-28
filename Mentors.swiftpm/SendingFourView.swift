@@ -13,7 +13,7 @@ struct SendingFourView: View {
         // 좌로 정렬 VStack
         VStack(alignment: .leading) {
             
-            // Text
+            // VStack-Text
             Text("멘토가 보면 좋을 파일이 있다면,\rPDF 또는 사진으로 올려주세요")
             .font(.custom("Apple SD Gothic Neo", size: 24))
             .fontWeight(.bold)
@@ -21,16 +21,17 @@ struct SendingFourView: View {
             .multilineTextAlignment(.leading)
             .padding(.bottom, 10)
 
-            // Text
+            // VStack-Text
             Text("최대 10개의 파일")
                 .font(.custom("Apple SD Gothic Neo", size: 16))
                 .fontWeight(.regular)
                 .foregroundColor(Color("CustomBlack"))
                 .padding(.bottom, 24)
             
-            // Button 2개 있는 HStack
+            // VStack-HStack
             HStack {
-                // 좌 Button
+                
+                // VStack-HStack-Button
                 Button(action: {}) {
                     VStack {
                         Image(systemName: "square.and.arrow.up.fill")
@@ -47,13 +48,14 @@ struct SendingFourView: View {
                 .frame(width: 140, height: 94)
                 .background(Color("CustomYellow"))
                 .cornerRadius(10)
-                // 우 Button
+                
+                // VStack-HStack-Button
                 Button(action: {}) {
                     VStack {
-                        Image(systemName: "x.square.fill")
+                        Image(systemName: "CustomGrey")
                             .foregroundColor(Color("CustomJjinYellow"))
                             .padding(.bottom, 7)
-                        Text("파일 또는 사진 첨부")
+                        Text("첨부하지 않음")
                             .font(.custom("Apple SD Gothic Neo", size: 14))
                             .fontWeight(.regular)
                             .foregroundColor(Color("CustomBlack"))
@@ -62,7 +64,7 @@ struct SendingFourView: View {
                 }
                 .fixedSize()
                 .frame(width: 140, height: 94)
-                .background(Color("CustomYellow"))
+                .background(Color("CustomJjinGrey"))
                 .cornerRadius(10)
                 
                 
