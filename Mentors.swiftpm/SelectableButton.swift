@@ -30,13 +30,17 @@ struct SelectableButton: View {
             HStack {
                 Spacer()
                 Text(title)
+                    .font(Font.custom("Apple SD Gothic Neo", size: 18))
                 Spacer()
             }
-//            .font(Font.custom("Apple SD Gothic Neo"), size: 24)
             .frame(height: 48)
-            .background(isSelected ? Color.init(hex: "F6D555") : Color.init(hex: "E5E2D7"))
-            .foregroundColor(isSelected ? Color.init(hex: "292929") : Color.init(hex: "F9F9F9"))
+            .background(isSelected ? Color.init(hex: "F6D555") : Color.init(hex: "F9F9F9"))
+            .foregroundColor(isSelected ? Color.init(hex: "292929") : Color.init(hex: "292929"))
             .cornerRadius(10)
+            .overlay{
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(isSelected ? Color.init(hex: "F6D555") : Color.init(hex: "F6D555"), lineWidth: 1.2)
+            }
         }
     }
 }
