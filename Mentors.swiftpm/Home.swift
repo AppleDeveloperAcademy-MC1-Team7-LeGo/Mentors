@@ -19,6 +19,7 @@ struct Home: View {
                     isNavigate = true
                 } label: {
                     Text("다음 화면으로")
+                        .fontWeight(.semibold)
                         .frame(width: 200, height: 100)
                         .cornerRadius(8)
                         .border(Color.blue, width: 1)
