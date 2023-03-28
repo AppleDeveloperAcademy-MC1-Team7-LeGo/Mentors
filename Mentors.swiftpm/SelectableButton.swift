@@ -31,6 +31,7 @@ struct SelectableButton: View {
                 Spacer()
                 Text(title)
                     .font(Font.custom("Apple SD Gothic Neo", size: 18))
+                    .fontWeight(.semibold)
                 Spacer()
             }
             .frame(height: 48)
