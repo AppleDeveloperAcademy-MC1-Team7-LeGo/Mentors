@@ -33,14 +33,17 @@ struct Sending2: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
                 .padding(.top, 40)
-            MentorsTextField(text: $text)
+//            이거 아래 MentorsTextField에 멘트를 넣어야 하는데 어떻게 넣을까요ㅠㅠ
+//            MentorsTextField(text: "멘토들이 알아보기 쉽게 적어주는 센스!")
                 .padding(.top, 20)
             
             Spacer()
             
-            //텍스트필드에 썼을 때 다음이 활성화되도록 어떻게 하죠?
-            Nextbutton(title: "다음", isAbled: false, action: {print("next")})
-                .padding(.bottom, 418)
+//            텍스트필드에 썼을 때 '다음'이 활성화되도록 어떻게 하죠?
+//            if MentoringTextField() != .none {
+                Nextbutton(title: "다음", isAbled: false, action: {print("next")})
+                    .padding(.bottom, 418)
+//            }
         }
         .padding(.horizontal, 26)
         
