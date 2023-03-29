@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Record: View {
-    
     @State private var mentoringDescription: String?
     @State private var mentoringDescriptionPlaceHolder: String = "멘토링 내용을 기록하세요."
     
@@ -23,7 +22,6 @@ struct Record: View {
     }
     
     var body: some View {
-        
         VStack {
             
             Button { } label: { Image(systemName: "chevron.backward") }
@@ -43,7 +41,7 @@ struct Record: View {
                     maxHeight: 80,
                     alignment: .leading
                 )
-            
+                
             VStack {
                 
                 ZStack(alignment: .topLeading) {
@@ -76,7 +74,6 @@ struct Record: View {
                 
                 VStack { customButton(buttonName: "멘토링 완료", background_hex: "e5e2d7", foreground_hex: "292929") }
                     .frame(maxWidth: 179, maxHeight: .infinity)
-                
             }
             .frame(
                 maxWidth: .infinity,
@@ -90,7 +87,6 @@ struct Record: View {
         .background(Color(hex: "f9f9f9"))
         
     }
-    
 }
 
 struct Record_Previews: PreviewProvider {
