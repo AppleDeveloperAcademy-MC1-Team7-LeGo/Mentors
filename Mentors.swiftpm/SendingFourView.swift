@@ -15,16 +15,14 @@ struct SendingFourView: View {
             
             // VStack-Text
             Text("멘토가 보면 좋을 파일이 있다면,\rPDF 또는 사진으로 올려주세요")
-                .font(.custom("Apple SD Gothic Neo", size: 24))
-                .fontWeight(.bold)
+                .font(.sandoll(size: 24, weight: .bold))
                 .foregroundColor(Color(hex: "292929"))
                 .multilineTextAlignment(.leading)
                 .padding(.bottom, 10)
             
             // VStack-Text
             Text("최대 10개의 파일")
-                .font(.custom("Apple SD Gothic Neo", size: 16))
-                .fontWeight(.regular)
+                .font(.sandoll(size: 16, weight: .regular))
                 .foregroundColor(Color(hex: "292929"))
                 .padding(.bottom, 24)
             
@@ -38,8 +36,7 @@ struct SendingFourView: View {
                             .foregroundColor(Color(hex: "F6D555"))
                             .padding(.bottom, 7)
                         Text("파일 또는 사진 첨부")
-                            .font(.custom("Apple SD Gothic Neo", size: 14))
-                            .fontWeight(.regular)
+                            .font(.sandoll(size: 14, weight: .regular))
                             .foregroundColor(Color(hex: "292929"))
                             .fixedSize()
                     }
@@ -59,8 +56,7 @@ struct SendingFourView: View {
                             .foregroundColor(Color(hex: "E5E2D7"))
                             .padding(.bottom, 7)
                         Text("첨부하지 않음")
-                            .font(.custom("Apple SD Gothic Neo", size: 14))
-                            .fontWeight(.regular)
+                            .font(.sandoll(size: 14, weight: .regular))
                             .foregroundColor(Color(hex: "292929"))
                             .fixedSize()
                     }
@@ -84,8 +80,7 @@ struct SendingFourView: View {
                         .frame(width: 12, height: 12)
                 }
                 Text("파일명")
-                    .font(.custom("Apple SD Gothic Neo", size: 12))
-                    .fontWeight(.regular)
+                    .font(.sandoll(size: 12, weight: .regular))
                     .foregroundColor(Color(hex: "292929"))
             }
             .padding(.bottom, 8)
@@ -101,8 +96,7 @@ struct SendingFourView: View {
                         .frame(width: 12, height: 12)
                 }
                 Text("파일명")
-                    .font(.custom("Apple SD Gothic Neo", size: 12))
-                    .fontWeight(.regular)
+                    .font(.sandoll(size: 12, weight: .regular))
                     .foregroundColor(Color(hex: "292929"))
             }
             .padding(.bottom, 8)
@@ -118,8 +112,7 @@ struct SendingFourView: View {
                         .frame(width: 12, height: 12)
                 }
                 Text("파일명")
-                    .font(.custom("Apple SD Gothic Neo", size: 12))
-                    .fontWeight(.regular)
+                    .font(.sandoll(size: 12, weight: .regular))
                     .foregroundColor(Color(hex: "292929"))
             }
             .padding(.bottom, 313)
@@ -127,8 +120,7 @@ struct SendingFourView: View {
             // VStack-Button
             Button(action:{}) {
                 Text("다음")
-                    .font(.custom("Apple SD Gothic Neo", size: 18))
-                    .fontWeight(.semibold)
+                    .font(.sandoll(size: 18, weight: .semibold))
                     .foregroundColor(Color(hex: "292929"))
             }
             .fixedSize()
