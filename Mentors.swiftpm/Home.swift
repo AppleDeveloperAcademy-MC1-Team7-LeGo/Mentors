@@ -20,13 +20,14 @@ struct Home: View {
                     .padding(.top, 44)
                 
                 //진행 중인 멘토링 기록하기
-                //왜..가로가 안 넓어질까요?
+                //왜..가로가 안 넓어질까요? 다른 기종 뷰에 대비하기 위해 padding으로 가로를 넓히고 싶어요.
                     Button {
                     
                 } label: {
                     Text("진행 중인 멘토링 기록하기")
                         .fontWeight(.bold)
-                        .frame(height: 48)
+                        .frame(maxWidth: 380, minHeight: 48)
+                        //.frame( height: 48, maxWidth: 380)
                         .background(Color.init(hex: "E8585E"))
                         .foregroundColor(Color.init(hex: "f9f9f9"))
                         
@@ -46,7 +47,7 @@ struct Home: View {
                     .padding(.top, 66)
                 }
                 NavigationLink(isActive: $isNavigate) {
-                    Sending1()
+                    Sending1() //연결되는 뷰 링크 변경해야함
                 } label: {
                     HomeMentoringButton(title: "내 멘토링 기록 모아보기", isSelected: true, action: {
                         isNavigate = true
@@ -80,7 +81,6 @@ struct Home: View {
                             Image(systemName: "person.circle")
                         }
                 }
-                
             }
             .padding(.horizontal, 26)
         }
