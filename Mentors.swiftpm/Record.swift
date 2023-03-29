@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Record: View {
     
+    @State private var mentoringDescription: String?
     @State private var mentoringDescriptionPlaceHolder: String = "멘토링 내용을 기록하세요."
     
     func customButton(buttonName: String, background_hex: String, foreground_hex: String) -> AnyView {
@@ -16,7 +17,7 @@ struct Record: View {
             .frame(maxWidth: 160, maxHeight: 48)
             .background(Color(hex: background_hex))
             .foregroundColor(Color(hex: foreground_hex))
-            .font(.system(size: 18, weight: .semibold))
+            .font(.sandoll(size: 18, weight: .semibold))
             .cornerRadius(10)
         )
     }
@@ -26,8 +27,8 @@ struct Record: View {
         VStack {
             
             Button { } label: { Image(systemName: "chevron.backward") }
-                .font(.system(size: 24))
-                .foregroundColor(Color.black)
+                .font(.sandoll(size: 24, weight: .regular))
+                .foregroundColor(Color(hex: "292929"))
                 .frame(
                     maxWidth: .infinity,
                     maxHeight: 44,
@@ -35,29 +36,46 @@ struct Record: View {
                 )
             
             Text("진행 중인 멘토링을 기록하세요")
-                .font(.system(size: 24))
-                .fontWeight(.bold)
-                .foregroundColor(Color(red: 0.161, green: 0.161, blue: 0.161))
+                .font(.sandoll(size: 24, weight: .bold))
+                .foregroundColor(Color(hex: "292929"))
                 .frame(
                     maxWidth: .infinity,
                     maxHeight: 80,
                     alignment: .leading
                 )
             
-            TextEditor(text: $mentoringDescriptionPlaceHolder)
-                .font(.sandoll(size: 14, weight: .medium))
-                .foregroundColor(Color(hex: "bfbbab"))
-                .cornerRadius(10)
-            // Problem #1. 양 옆이 좁아보임. horizontal padding 주면 조금 잘림.
-            // Problem #2. 배경 색이 바뀌지 않음.
-            // Problem #3. 첫 줄 맨 위랑 맨 왼쪽 boundary랑 띄워주어야 함.
-            // Problem #4. 키보드에 의해 text 입력 되었을 때 placeholder 그대로 있음.
+            VStack {
+                
+                ZStack(alignment: .topLeading) {
+                    
+                    TextEditor(text: Binding($mentoringDescription, replacingNilWith: ""))
+                        .hideBackground()
+                        .padding(10)
+                        .background(Color(hex: "f7f5ef"))
+                        .cornerRadius(10)
+                        .font(.sandoll(size: 14, weight: .medium))
+                        .foregroundColor(Color(hex: "292929"))
+                        .multilineTextAlignment(.leading)
+                    
+                    Text(mentoringDescription ?? mentoringDescriptionPlaceHolder)
+                        .offset(x: 16, y: 19)
+                        .font(.sandoll(size: 14, weight: .medium))
+                        .foregroundColor(Color(hex: "bfbbab"))
+                        .opacity(mentoringDescription == nil ? 1 : 0)
+                    
+                }
+                .font(.body)
+                
+            }
+            .padding(.horizontal, 8)
             
             HStack {
                 
-                VStack { customButton(buttonName: "임시 저장", background_hex: "f6d555", foreground_hex: "292929") }.frame(maxWidth: 179, maxHeight: .infinity)
+                VStack { customButton(buttonName: "임시 저장", background_hex: "f6d555", foreground_hex: "292929") }
+                    .frame(maxWidth: 179, maxHeight: .infinity)
                 
-                VStack { customButton(buttonName: "멘토링 완료", background_hex: "e5e2d7", foreground_hex: "292929") }.frame(maxWidth: 179, maxHeight: .infinity)
+                VStack { customButton(buttonName: "멘토링 완료", background_hex: "e5e2d7", foreground_hex: "292929") }
+                    .frame(maxWidth: 179, maxHeight: .infinity)
                 
             }
             .frame(
@@ -69,7 +87,7 @@ struct Record: View {
         }
         .padding(.horizontal, 16)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(red: 0.961, green: 0.961, blue: 0.961))
+        .background(Color(hex: "f9f9f9"))
         
     }
     
@@ -80,3 +98,6 @@ struct Record_Previews: PreviewProvider {
         Record()
     }
 }
+
+// To Do
+// 현재도 문제 없이 작동하지만, 통일성을 위해 < 와 "진행 중인 멘토링을 기록하세요"를 고정시키면 좋을 듯
