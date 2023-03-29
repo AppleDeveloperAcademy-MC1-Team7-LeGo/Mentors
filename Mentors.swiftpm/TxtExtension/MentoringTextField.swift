@@ -9,9 +9,8 @@ import SwiftUI
 
 struct MentoringTextField: View {
     @State private var text = ""
-//    init() {
-//        UITextView.appearance().backgroundColor = .clear
-//    }
+    
+    //아래 TextEditor의 문제가 배경rectangle과 텍스트가 따로 논다는 것입니다... 텍스트는 rectangle 하단에 써져요.
     
     var body: some View {
         VStack {
@@ -44,7 +43,7 @@ struct MentoringTextField_Previews: PreviewProvider {
     }
 }
 
-//iOS16 이상
+//iOS16 이상 사용 가능
 extension TextEditor {
     @ViewBuilder func hideBackground() -> some View {
         if #available(iOS 16, *) {
