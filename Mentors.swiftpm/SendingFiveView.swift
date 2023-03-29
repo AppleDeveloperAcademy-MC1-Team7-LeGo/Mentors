@@ -44,295 +44,120 @@ struct SendingFiveView: View {
                         .background(Color(hex: "E5E2D7"))
                         .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# 팀원이랑 싸웠어요")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "팀원이랑 싸웠어요", keywordBgColor: "FDF4D1")
                         }
-                        .background(Color(hex: "FDF4D1"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# 협업")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "협업", keywordBgColor: "FDF4D1")
                         }
-                        .background(Color(hex: "FDF4D1"))
-                        .cornerRadius(10)
                     }
                     .padding(.bottom, 5)
                     
                     // VStack-Group-HStack(2)
                     HStack {
                         Button(action:{}) {
-                            Text("# 소통")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "소통", keywordBgColor: "FDF4D1")
                         }
-                        .background(Color(hex: "FDF4D1"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# 회고")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "회고", keywordBgColor: "FDF4D1")
                         }
-                        .background(Color(hex: "FDF4D1"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# 기록")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "기록", keywordBgColor: "FDF4D1")
                         }
-                        .background(Color(hex: "FDF4D1"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# CBL")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "CBL", keywordBgColor: "FDF4D1")
                         }
-                        .background(Color(hex: "FDF4D1"))
-                        .cornerRadius(10)
                     }
                     .padding(.bottom, 5)
                     
                     // VStack-Group-HStack(3)
                     HStack {
                         Button(action:{}) {
-                            Text("# Engage")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "Engage", keywordBgColor: "FDF4D1")
                         }
-                        .background(Color(hex: "FDF4D1"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# Investigate")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "Investigate", keywordBgColor: "FDF4D1")
                         }
-                        .background(Color(hex: "FDF4D1"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# Act")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "Act", keywordBgColor: "FDF4D1")
                         }
-                        .background(Color(hex: "FDF4D1"))
-                        .cornerRadius(10)
                     }
                     .padding(.bottom, 5)
                     
                     // VStack-Group-HStack(4)
                     HStack {
                         Button(action:{}) {
-                            Text("# 프레젠테이션")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "프레젠테이션", keywordBgColor: "FDF4D1")
                         }
-                        .background(Color(hex: "FDF4D1"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# 스토리텔링")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "스토리텔링", keywordBgColor: "FDF4D1")
                         }
-                        .background(Color(hex: "FDF4D1"))
-                        .cornerRadius(10)
                     }
                     .padding(.bottom, 5)
                     
                     // VStack-Group-HStack(5)
                     HStack {
                         Button(action:{}) {
-                            Text("# Domain")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "Domain", keywordBgColor: "F9DEDF")
                         }
-                        .background(Color(hex: "F9DEDF"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# 마케팅")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "마케팅", keywordBgColor: "F9DEDF")
                         }
-                        .background(Color(hex: "F9DEDF"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# 비즈니스")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "비즈니스", keywordBgColor: "F9DEDF")
                         }
-                        .background(Color(hex: "F9DEDF"))
-                        .cornerRadius(10)
                     }
                     .padding(.bottom, 5)
                     
                     // VStack-Group-HStack(6)
                     HStack {
                         Button(action:{}) {
-                            Text("# Design")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "Design", keywordBgColor: "DAEEC6")
                         }
-                        .background(Color(hex: "DAEEC6"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# UX")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "UX", keywordBgColor: "DAEEC6")
                         }
-                        .background(Color(hex: "DAEEC6"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# UI")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "UI", keywordBgColor: "DAEEC6")
                         }
-                        .background(Color(hex: "DAEEC6"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# HIG")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "HIG", keywordBgColor: "DAEEC6")
                         }
-                        .background(Color(hex: "DAEEC6"))
-                        .cornerRadius(10)
                     }
                     .padding(.bottom, 5)
                     
                     // VStack-Group-HStack(7)
                     HStack {
                         Button(action:{}) {
-                            Text("# 와이어프레임")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "와이어프레임", keywordBgColor: "DAEEC6")
                         }
-                        .background(Color(hex: "DAEEC6"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# 프로토타이핑")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "프로토타이핑", keywordBgColor: "DAEEC6")
                         }
-                        .background(Color(hex: "DAEEC6"))
-                        .cornerRadius(10)
                     }
                     .padding(.bottom, 5)
                     
                     // VStack-Group-HStack(8)
                     HStack {
                         Button(action:{}) {
-                            Text("# Tech")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "Tech", keywordBgColor: "CEE1F3")
                         }
-                        .background(Color(hex: "CEE1F3"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# Swift")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "Swift", keywordBgColor: "CEE1F3")
                         }
-                        .background(Color(hex: "CEE1F3"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# SwiftUI")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "SwiftUI", keywordBgColor: "CEE1F3")
                         }
-                        .background(Color(hex: "CEE1F3"))
-                        .cornerRadius(10)
                     }
                     .padding(.bottom, 5)
                     
                     // VStack-Group-HStack(9)
                     HStack {
                         Button(action:{}) {
-                            Text("# Xcode")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "Xcode", keywordBgColor: "CEE1F3")
                         }
-                        .background(Color(hex: "CEE1F3"))
-                        .cornerRadius(10)
                         Button(action:{}) {
-                            Text("# Swift Student Challenge")
-                                .font(.custom("Apple SD Gothic Neo", size: 18))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(15)
+                            Tag(keywordText: "Swift Student Challenge", keywordBgColor: "CEE1F3")
                         }
-                        .background(Color(hex: "CEE1F3"))
-                        .cornerRadius(10)
                     }
                     .padding(.bottom, 30)
                 }
@@ -343,12 +168,11 @@ struct SendingFiveView: View {
                         .font(.custom("Apple SD Gothic Neo", size: 18))
                         .fontWeight(.semibold)
                         .foregroundColor(Color(hex: "292929"))
+                        .fixedSize()
+                        .frame(width: 338, height: 48)
+                        .background(Color(hex: "F6D555"))
+                        .cornerRadius(10)
                 }
-                .fixedSize()
-                .frame(width: 338, height: 48)
-                .background(Color(hex: "F6D555"))
-                .cornerRadius(10)
-                
             }.padding()
         }
     }
