@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Record: View {
+
     @State private var mentoringDescription: String?
     @State private var mentoringDescriptionPlaceHolder: String = "멘토링 내용을 기록하세요."
     
@@ -36,7 +37,9 @@ struct Record: View {
     }
     
     var body: some View {
+
         VStack {           
+
             Text("진행 중인 멘토링을 기록하세요")
                 .font(.sandoll(size: 24, weight: .bold))
                 .foregroundColor(Color(hex: "292929"))
@@ -45,7 +48,7 @@ struct Record: View {
                     maxHeight: 80,
                     alignment: .leading
                 )
-                
+
             VStack {
                 
                 ZStack(alignment: .topLeading) {
@@ -91,6 +94,7 @@ struct Record: View {
         .background(Color(hex: "f9f9f9"))
         .navigationBarItems(leading: btnBack)
         .navigationBarBackButtonHidden(true)
+
     }
 }
 
