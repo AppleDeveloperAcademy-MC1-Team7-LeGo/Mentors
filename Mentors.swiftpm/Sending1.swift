@@ -104,9 +104,6 @@ struct MovingOnNextView: View {
     }
 }
 
-//하단 다음 버튼
-
-
 struct sending1_Previews: PreviewProvider {
     static var previews: some View {
         Sending1()
