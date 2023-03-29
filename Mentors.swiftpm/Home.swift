@@ -20,20 +20,20 @@ struct Home: View {
                     .padding(.top, 44)
                 
                 //진행 중인 멘토링 기록하기
-                //왜..가로가 안 넓어질까요? 다른 기종 뷰에 대비하기 위해 padding으로 가로를 넓히고 싶어요.
+                //멘토링 시작 이후에 활성화되도록 만들어야해요
                     Button {
                     
                 } label: {
                     Text("진행 중인 멘토링 기록하기")
                         .fontWeight(.bold)
-                        .frame(maxWidth: 380, minHeight: 48)
-                        //.frame( height: 48, maxWidth: 380)
+                        .font(Font.custom("Apple SD Gothic Neo", size: 20))
+                        .frame(maxWidth: 400, minHeight: 48)
                         .background(Color.init(hex: "E8585E"))
                         .foregroundColor(Color.init(hex: "f9f9f9"))
+                        .cornerRadius(10)
                         
                 }
                 .padding(.top, 40)
-                .padding(.horizontal, 26)
                 
                 //내비게이션
                 NavigationLink(isActive: $isNavigate) {
@@ -59,6 +59,7 @@ struct Home: View {
                 Spacer()
                 
                 //탭바
+                //홈 버튼이 기본 활성화가 되어야 해요
                 TabView {
                     Text("")
                         .tabItem {
