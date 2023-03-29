@@ -1,8 +1,8 @@
 //
-//  New+Check.swift
+//  Check.swift
 //  Mentors
 //
-//  Created by JAESEOK LEE on 2023/03/29.
+//  Created by JAESEOK LEE on 2023/03/27.
 //
 
 import SwiftUI
@@ -197,7 +197,6 @@ struct Check: View {
         .background(Color(hex: "f9f9f9"))
         
     }
-    
 }
 
 struct Check_Previews: PreviewProvider {
