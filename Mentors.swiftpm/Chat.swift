@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import AVKit
+import SpriteKit
 
 struct Chat: View {
     
@@ -16,6 +18,11 @@ struct Chat: View {
                                        "camera": "카메라",
                                        "folder": "파일",
                                        "calendar": "캘린더"]
+    @State private var showNextMessage: Int = 0
+    
+    @State var mainScene = SKScene()
+    
+    private let avPlayer = AVPlayer(url:  Bundle.main.url(forResource: "Mentoring", withExtension: "mp4")!)
     
     func toggleButtons() {
         focusMessageField = false
@@ -24,7 +31,7 @@ struct Chat: View {
     var body: some View {
         NavigationView {
             VStack {
-                // leeo's chat
+                // Leeo's chat 1
                 HStack {
                     HStack {
                         Circle()
@@ -36,8 +43,7 @@ struct Chat: View {
                                 .font(.sandoll(size: 10, weight: .medium))
                                 .foregroundColor(Color(hex: "292929"))
                                 .padding(.leading, 5)
-                            Text("어떤 도움이 필요하신가요?")
-                                .font(.system(size: 14))
+                            Text("안녕하세요. Team LeGo에게 도움을 줄 수 있을 것 같아서 채팅을 보내요. 혹시 지금 카페테리아에서 멘토링 괜찮아요?")
                                 .font(.sandoll(size: 14, weight: .medium))
                                 .padding(.vertical, 5)
                                 .padding(.horizontal, 10)
@@ -56,62 +62,104 @@ struct Chat: View {
                 .padding(.bottom, 24)
                 
                 // LeGo's chat
-                HStack {
-                    Spacer()
-                    
+                if showNextMessage >= 1 {
                     HStack {
-                        VStack(alignment: .trailing, spacing: 2) {
-                            Text("LeGo")
-                                .font(.sandoll(size: 10, weight: .medium))
-                                .foregroundColor(Color(hex: "292929"))
-                                .padding(.trailing, 5)
-                            Text("팀원들이 너무 싸워요..")
-                                .font(.sandoll(size: 14, weight: .medium))
-                                .padding(.vertical, 5)
-                                .padding(.horizontal, 11)
-                                .background(Color(hex: "FDF4D1"))
-                                .cornerRadius(8)
-                                .foregroundColor(Color(hex: "292929"))
+                        Spacer()
+                        
+                        HStack {
+                            VStack(alignment: .trailing, spacing: 2) {
+                                Text("LeGo")
+                                    .font(.sandoll(size: 10, weight: .medium))
+                                    .foregroundColor(Color(hex: "292929"))
+                                    .padding(.trailing, 5)
+                                Text("안녕하세요, Leeo. 저희의 사연에 응답해 주셔서 감사합니다. 네, 지금 카페테리아에서 멘토링 괜찮습니다. 지금 저희 모두 카페테리아에 있어요.")
+                                    .font(.sandoll(size: 14, weight: .medium))
+                                    .padding(.vertical, 5)
+                                    .padding(.horizontal, 11)
+                                    .background(Color(hex: "FDF4D1"))
+                                    .cornerRadius(8)
+                                    .foregroundColor(Color(hex: "292929"))
+                            }
                         }
                     }
+                    .padding(.trailing, 16)
+                    .padding(.bottom, 24)
                 }
-                .padding(.trailing, 16)
                 
-                // schedule
-                VStack(alignment: .leading) {
+                // Leeo's chat 2
+                if showNextMessage >= 2 {
                     HStack {
-                        Image(systemName: "calendar.circle.fill")
-                            .symbolRenderingMode(.palette)
-                            .foregroundStyle(.white, Color(hex: "F6D555"))
-                            .font(.sandoll(size: 20, weight: .medium))
-                        
-                        Text("3월 31일 (금) 오후 4:00")
-                            .font(.sandoll(size: 14, weight: .bold))
-                            .foregroundColor(Color(hex: "292929"))
+                        HStack {
+                            Circle()
+                                .frame(width: 48, height: 48)
+                                .foregroundColor(Color(hex: "D9D9D9"))
+                            
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("리이오")
+                                    .font(.sandoll(size: 10, weight: .medium))
+                                    .foregroundColor(Color(hex: "292929"))
+                                    .padding(.leading, 5)
+                                Text("좋습니다. 바로 가겠습니다.")
+                                    .font(.sandoll(size: 14, weight: .medium))
+                                    .padding(.vertical, 5)
+                                    .padding(.horizontal, 10)
+                                    .background(Color(hex: "F9F9F9"))
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color(hex: "F6D555"), lineWidth: 1)
+                                    }
+                                    .foregroundColor(Color(hex: "292929"))
+                            }
+                            .padding(.leading, 5)
+                        }
                         Spacer()
                     }
-                    .padding(.bottom, 4)
-                    .padding(.leading, 26)
+                    .padding(.leading, 16)
+                    .padding(.bottom, 24)
                     
-                    HStack {
-                        Text("멘토 리이오")
-                            .font(.sandoll(size: 14, weight: .semibold))
-                            .foregroundColor(Color(hex: "292929"))
+                    // schedule
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Image(systemName: "calendar.circle.fill")
+                                .symbolRenderingMode(.palette)
+                                .foregroundStyle(.white, Color(hex: "F6D555"))
+                                .font(.sandoll(size: 20, weight: .medium))
+                            
+                            Text("3월 31일 (금) 오후 4:00")
+                                .font(.sandoll(size: 14, weight: .bold))
+                                .foregroundColor(Color(hex: "292929"))
+                            Spacer()
+                        }
+                        .padding(.bottom, 4)
+                        .padding(.leading, 26)
                         
-                        Text("(와)과 멘토링 약속을 잡았어요.")
-                            .font(.sandoll(size: 14, weight: .medium))
-                            .foregroundColor(Color(hex: "292929"))
+                        HStack {
+                            Text("멘토 리이오")
+                                .font(.sandoll(size: 14, weight: .semibold))
+                                .foregroundColor(Color(hex: "292929"))
+                            
+                            Text("(와)과 멘토링 약속을 잡았어요.")
+                                .font(.sandoll(size: 14, weight: .medium))
+                                .foregroundColor(Color(hex: "292929"))
+                        }
+                        .padding(.leading, 28)
                     }
-                    .padding(.leading, 28)
+                    .padding(.vertical, 28)
+                    .background(Color(hex: "F9F9F9"))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(hex: "F6D555"), lineWidth: 3)
+                    }
+                    .padding(.horizontal, 16)
                 }
-                .padding(.vertical, 28)
-                .background(Color(hex: "F9F9F9"))
-                .overlay {
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color(hex: "F6D555"), lineWidth: 3)
-                }
-                .padding(.horizontal, 16)
-                .padding(.top, 45)
+                
+                Spacer()
+                
+                VideoPlayer(player: avPlayer)
+                    .onDisappear {
+                        avPlayer.isMuted = false
+                    }
+                    .frame(width: 250, height: 250)
                 
                 Spacer()
                 
@@ -127,13 +175,14 @@ struct Chat: View {
                             }
                         } label: {
                             Image(systemName: isMoreFunctionsShowing && !focusMessageField ? "minus" : "plus")
-                                .font(.system(size: 24, weight: .regular))
                                 .font(.sandoll(size: 24, weight: .regular))
                                 .foregroundColor(Color(hex: "F6D555"))
                         }
                         
                         ZStack {
-                            TextField("", text: $message)
+                            TextField("", text: $message) {
+                                UIApplication.shared.endEditing()
+                            }
                                 .frame(height: 40)
                                 .padding(.horizontal, 10)
                                 .background(Color(hex: "F5F3E9"))
@@ -147,7 +196,7 @@ struct Chat: View {
                                     Spacer(minLength: 0)
                                     
                                     Button {
-                                        
+                                        showNextMessage += 1
                                     } label: {
                                         Image(systemName: "paperplane")
                                             .foregroundColor(Color(hex: "F9F9F9"))
@@ -183,6 +232,9 @@ struct Chat: View {
         }
         .navigationTitle("리이오")
         .ignoresSafeArea()
+        .onAppear {
+            avPlayer.play()
+        }
     }
 }
 

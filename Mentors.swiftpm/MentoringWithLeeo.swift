@@ -10,7 +10,7 @@ import AVKit
 
 struct MentoringWithLeeo: View {
     
-    let avPlayer = AVPlayer(url:  Bundle.main.url(forResource: "video", withExtension: "MOV")!)
+    let avPlayer = AVPlayer(url:  Bundle.main.url(forResource: "Mentoring", withExtension: "mp4")!)
     
     var body: some View {
         VideoPlayer(player: avPlayer)
