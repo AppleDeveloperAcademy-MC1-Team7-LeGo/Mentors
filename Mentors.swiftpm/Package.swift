@@ -34,9 +34,15 @@ let package = Package(
             ]
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/exyte/PopupView.git", "2.0.0"..<"3.0.0")
+    ],
     targets: [
         .executableTarget(
             name: "AppModule",
+            dependencies: [
+                .product(name: "PopupView", package: "popupview")
+            ],
             path: ".",
             resources: [
                 .process("Resources")

@@ -181,7 +181,6 @@ struct Chat: View {
             }
             .background(Color(hex: "F7F5EF"))
         }
-        .ignoresSafeArea()
         .navigationTitle("리이오")
         .ignoresSafeArea()
     }
