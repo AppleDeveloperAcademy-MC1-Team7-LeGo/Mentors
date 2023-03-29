@@ -15,7 +15,8 @@ struct MentorsTextField: View {
         ZStack {
             TextField("", text: $text)
                 .placeholder(when: text.isEmpty, placeholder: {
-                    Text("팀 이름을 정확하게 적어주세요")
+                    //아래 Text("" <-요 부분에 뭘 넣어야 하죠?? placeholder가 sending1과 sending2 각각 달라야 해요
+                    Text("")
                         .fontWeight(.medium)
                         .foregroundColor(Color.init(hex: "AAA48E"))
                 })
