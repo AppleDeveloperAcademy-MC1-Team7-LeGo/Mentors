@@ -33,7 +33,7 @@ struct Sending2: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
                 .padding(.top, 40)
-//            이거 아래 MentorsTextField에 멘트를 넣어야 하는데 어떻게 넣을까요ㅠㅠ
+//            이거 아래 MentorsTextField에 멘트를 넣어야 하는데 어떻게 넣어야 하나요..?
 //            MentorsTextField(text: "멘토들이 알아보기 쉽게 적어주는 센스!")
                 .padding(.top, 20)
             
