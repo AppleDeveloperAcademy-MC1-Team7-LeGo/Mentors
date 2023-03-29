@@ -35,7 +35,7 @@ struct HomeMentoringButton: View {
                 Spacer()
             }
             .frame(height: 156)
-            .background(isSelected ? Color.init(hex: "F6D555") : Color.init(hex: "FDF4D1"))
+            .background(isSelected ? Color.init(hex: "FDF4D1") : Color.init(hex: "F6D555"))
             .foregroundColor(isSelected ? Color.init(hex: "292929") : Color.init(hex: "292929"))
             .cornerRadius(10)
             .overlay{
