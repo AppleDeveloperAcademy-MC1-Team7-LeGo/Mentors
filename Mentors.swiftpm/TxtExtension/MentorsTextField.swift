@@ -34,10 +34,9 @@ struct MentorsTextField: View {
 
     }
 }
-
-struct MentorsTextField_Previews: PreviewProvider {
-    static var previews: some View {
-         EmptyView()
-//        MentorsTextField(text: <#String#>)
-    }
-}
+//
+//struct MentorsTextField_Previews: PreviewProvider {
+//    static var previews: some View {
+////         MentorsTextField(text: "")
+//    }
+//}
