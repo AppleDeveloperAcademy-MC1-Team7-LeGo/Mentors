@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SendingEightView: View {
+    
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         
         ScrollView {
@@ -99,24 +101,21 @@ struct SendingEightView: View {
                 }
                 
                 //VStack-Button
-                Button(action:{}) {
+                Button(action:{
+                    NavigationUtil.popToRootView()
+                }) {
                     Text("다음")
                         .font(.sandoll(size: 18, weight: .semibold))
                         .foregroundColor(Color(hex: "292929"))
+                        .fixedSize()
+                        .frame(width: 350, height: 48)
+                        .background(Color(hex: "F6D555"))
+                        .cornerRadius(10)
                 }
-                .fixedSize()
-                .frame(width: 338, height: 48)
-                .background(Color(hex: "F6D555"))
-                .cornerRadius(10)
                 
             }
             .padding()
         }
-    }
-}
-
-struct SendingEightView_Previews: PreviewProvider {
-    static var previews: some View {
-        SendingEightView()
+        .navigationBarBackButtonHidden(true)
     }
 }

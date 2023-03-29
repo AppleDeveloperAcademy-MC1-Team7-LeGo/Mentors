@@ -9,8 +9,8 @@ import SwiftUI
 
 struct Nextbutton: View {
     var title: String
-    var isAbled: Bool
-    var action: () -> Void
+    @State var isAbled: Bool
+//    var action: () -> Void
     
     init(
         title: String,
@@ -19,12 +19,12 @@ struct Nextbutton: View {
     ) {
         self.title = title
         self.isAbled = isAbled
-        self.action = action
+//        self.action = action
     }
     
     var body: some View {
         Button {
-            action()
+//            action()
         } label: {
             HStack {
                 Spacer()
@@ -43,7 +43,7 @@ struct Nextbutton: View {
                     .stroke(isAbled ? Color.init(hex: "F6D555") : Color.init(hex: "E5E2D7"), lineWidth: 1.2)
             }
         }
-        .disabled(!isAbled)
+        .disabled(isAbled)
     }
 }
 

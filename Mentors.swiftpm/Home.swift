@@ -28,7 +28,7 @@ struct Home: View {
                         .fontWeight(.bold)
                         .font(Font.custom("Apple SD Gothic Neo", size: 20))
                         .frame(maxWidth: 400, minHeight: 48)
-                        .background(Color.init(hex: "E8585E"))
+                        .background(Color(hex: "E8585E"))
                         .foregroundColor(Color.init(hex: "f9f9f9"))
                         .cornerRadius(10)
                         

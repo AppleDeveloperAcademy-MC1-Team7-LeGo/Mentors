@@ -41,7 +41,6 @@ struct SendingFourView: View {
                             .fixedSize()
                     }
                 }
-                .fixedSize()
                 .frame(width: 140, height: 94)
                 .background(Color(hex: "fdf4d1"))
                 .cornerRadius(10)
@@ -115,30 +114,23 @@ struct SendingFourView: View {
                     .font(.sandoll(size: 12, weight: .regular))
                     .foregroundColor(Color(hex: "292929"))
             }
-            .padding(.bottom, 313)
+            
+            Spacer()
         
             // VStack-Button
-            Button(action:{}) {
+            NavigationLink(destination: SendingFiveView()) {
                 Text("다음")
                     .font(.sandoll(size: 18, weight: .semibold))
                     .foregroundColor(Color(hex: "292929"))
+                    .frame(width: 350, height: 48)
+                    .background(Color(hex: "F6D555"))
+                    .cornerRadius(10)
             }
-            .fixedSize()
-            .frame(width: 338, height: 48)
-            .background(Color(hex: "F6D555"))
-            .cornerRadius(10)
         }
         .padding()
+        .navigationBarBackButtonHidden(true)
     }
 }
 
-struct SendingFourView_Previews: PreviewProvider {
-    static var previews: some View {
-        SendingFourView()
-    }
-}
-
-
-
- // 1. Button 비슷한 틀을 한 번에 묶을 수 있는지
- // 2. Button Click Animation 효과시 색상 변경
+ // TODO: 1. Button 비슷한 틀을 한 번에 묶을 수 있는지
+ // TODO: 2. Button Click Animation 효과시 색상 변경

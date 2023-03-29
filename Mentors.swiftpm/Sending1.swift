@@ -13,12 +13,9 @@ enum SelectedButtonType {
     case none
 }
 
-
-
 struct Sending1: View {
     @State private var selectButton: SelectedButtonType = .none
-    @State private var teamName: String = .init()
-    @State private var nextButtonDisabled = true
+    @State private var teamName: String = ""
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -61,29 +58,27 @@ struct Sending1: View {
             }
             
             if selectButton == .team {
-//                MentorsTextField에 '팀 이름을 정확하게 적어주세요'를 넣어야 하는데 어떻게 넣나요??ㅠㅠ
-                MentorsTextField(text: teamName)
+                MentorsTextField(text: teamName, placeholder: "팀 이름을 정확하게 적어주세요")
                     .padding(.top, 20)
                     .padding(.bottom, 80)
             }
             
+            // Next Button
             if selectButton != .none {
-                Nextbutton(title: "다음", isAbled: selectButton == .personal || selectButton == .team && teamName != "") {
-                    print("next")
+                NavigationLink(destination: Sending2()) {
+                    // TODO: "팀" 버튼 선택시 텍스트필드가 비어있으면 버튼 disabled
+                    Nextbutton(title: "다음", isAbled: true) {}
                 }
                 .padding(.top, selectButton == .personal ? 134 : 0)
-                .disabled(nextButtonDisabled)
             }
             Spacer()
         }
         .padding(.horizontal, 26)
+        .background(Color.init(hex: "F9F9F9"))
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: btnBack)
-        .background(Color.init(hex: "F9F9F9"))
     }
 }
-
-//다음 뷰로 넘어가는거 아직 못함
 
 struct MovingOnNextView: View {
     @State private var text: String = ""
@@ -103,10 +98,3 @@ struct MovingOnNextView: View {
         // Code to navigate to next view
     }
 }
-
-struct sending1_Previews: PreviewProvider {
-    static var previews: some View {
-        Sending1()
-    }
-}
-

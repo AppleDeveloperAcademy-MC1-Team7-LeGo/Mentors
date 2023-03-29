@@ -42,29 +42,20 @@ struct Sending3: View {
                 .padding(.top, 4)
             MentoringTextField()
                 .padding(.top, 16)
-            
-            //공백 포함 최소 50자 이상으로 적어야 '다음'버튼이 활성화가 되어야 합니다
+            //TODO: 공백 포함 최소 50자 이상으로 적어야 '다음'버튼이 활성화가 되어야 합니다
                 .onChange(of: text) { newValue in
                     isNextButtonEnabled = newValue.count >= 50
-                    
-                    Spacer()
-                    
-                    Group {
-                        Nextbutton(title: "다음", isAbled: true, action: {print("next")})
-                            .padding(.bottom, 21)
-                    }
-                    .disabled(!isNextButtonEnabled)
                 }
-                .navigationBarBackButtonHidden(true)
-                .navigationBarItems(leading: btnBack)
+                    
+            Spacer()
+            
+            NavigationLink(destination: SendingFourView()) {
+                Nextbutton(title: "다음", isAbled: true, action: {print("next")})
+                    .padding(.bottom, 21)
+                    .navigationBarBackButtonHidden(true)
+            }
         }
         .padding(.horizontal, 26)
         .background(Color.init(hex: "F9F9F9"))
-    }
-    
-    struct Sending3_Previews: PreviewProvider {
-        static var previews: some View {
-            Sending3()
-        }
     }
 }

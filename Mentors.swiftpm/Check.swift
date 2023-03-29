@@ -28,16 +28,6 @@ struct Check: View {
     var body: some View {
         
         VStack {
-            
-            Button { } label: { Image(systemName: "chevron.backward") }
-                .font(.sandoll(size: 24, weight: .regular))
-                .foregroundColor(Color(hex: "292929"))
-                .frame(
-                    maxWidth: .infinity,
-                    maxHeight: 44,
-                    alignment: .leading
-                )
-            
             Text("작성한 내용이 맞는지 확인해주세요")
                 .font(.sandoll(size: 24, weight: .bold))
                 .foregroundColor(Color(hex: "292929"))
@@ -182,7 +172,11 @@ struct Check: View {
             
             HStack {
                 
-                VStack { customDoneButton(buttonName: "작성 완료", background_hex: "f6d555", foreground_hex: "292929") }
+                VStack {
+                    NavigationLink(destination: Sending7View()) {
+                        customDoneButton(buttonName: "작성 완료", background_hex: "f6d555", foreground_hex: "292929")
+                    }
+                }
                 
             }
             .frame(
@@ -195,15 +189,10 @@ struct Check: View {
         .padding(.horizontal, 16)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(hex: "f9f9f9"))
-        
+        .navigationBarBackButtonHidden(true)
     }
 }
 
-struct Check_Previews: PreviewProvider {
-    static var previews: some View {
-        Check()
-    }
-}
 
-// To Do
+// TODO: 
 // 현재도 문제 없이 작동하지만, 통일성을 위해 < 와 "진행 중인 멘토링을 기록하세요"를 고정시키면 좋을 듯

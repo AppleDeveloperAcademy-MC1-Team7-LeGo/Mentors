@@ -13,6 +13,7 @@ struct Sending7View: View {
     @State private var isFirstButtonSelected: Bool = false
     @State private var isSecondButtonSelected: Bool = false
     @State private var isPopupShowing: Bool = false
+    @State private var goToNextView: Bool = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -37,6 +38,8 @@ struct Sending7View: View {
                     .padding(.top, 47)
                     .padding(.bottom, 18)
             }
+            
+            NavigationLink(destination: SendingEightView(), isActive: $goToNextView) { }
             
             Button {
                 isFirstButtonSelected = false
@@ -71,6 +74,7 @@ struct Sending7View: View {
                 HStack {
                     Button {
                         isPopupShowing = false
+                        goToNextView = true
                     } label: {
                         Text("네, 신청할게요")
                             .padding(.vertical, 15)
@@ -82,7 +86,7 @@ struct Sending7View: View {
                     }
                     
                     Button {
-                        
+                        isPopupShowing = false
                     } label: {
                         Text("더 수정할래요")
                             .padding(.vertical, 15)
@@ -111,11 +115,6 @@ struct Sending7View: View {
                 .closeOnTapOutside(true)
                 .backgroundColor(.black.opacity(0.5))
         }
-    }
-}
-
-struct Sending7View_Previews: PreviewProvider {
-    static var previews: some View {
-        Sending7View()
+        .navigationBarBackButtonHidden(true)
     }
 }

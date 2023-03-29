@@ -163,7 +163,7 @@ struct SendingFiveView: View {
                 }
                 
                 // VStack-Button
-                Button(action:{}) {
+                NavigationLink(destination: Check()) {
                     Text("다음")
                         .font(.custom("Apple SD Gothic Neo", size: 18))
                         .fontWeight(.semibold)
@@ -173,13 +173,8 @@ struct SendingFiveView: View {
                         .background(Color(hex: "F6D555"))
                         .cornerRadius(10)
                 }
-            }.padding()
-        }
-    }
-}
 
-struct SendingFiveView_Previews: PreviewProvider {
-    static var previews: some View {
-        SendingFiveView()
+            }.padding()
+        }.navigationBarBackButtonHidden(true)
     }
 }

@@ -11,6 +11,7 @@ struct Summary: View {
     
     @State private var feedback: String?
     @State private var feedbackPlaceHolder: String = "멘토링 후기를 입력하세요."
+    @Binding var isNavigate: Bool
     
     var body: some View {
         
@@ -168,11 +169,5 @@ struct Summary: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(hex: "f9f9f9"))
         
-    }
-}
-
-struct Summary_Previews: PreviewProvider {
-    static var previews: some View {
-        Summary()
     }
 }
