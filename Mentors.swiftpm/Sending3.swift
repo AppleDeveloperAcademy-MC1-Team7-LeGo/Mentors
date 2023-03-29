@@ -9,17 +9,20 @@ import SwiftUI
 
 struct Sending3: View {
     
+    @State private var text = ""
+    @State private var isNextButtonEnabled = false
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var btnBack : some View {
         Button(action: {
-        self.presentationMode.wrappedValue.dismiss()
+            self.presentationMode.wrappedValue.dismiss()
             
         }) {
-        HStack {
-            Image(systemName: "chevron.backward")
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
+            HStack {
+                Image(systemName: "chevron.backward")
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
             }
         }
     }
@@ -39,25 +42,28 @@ struct Sending3: View {
                 .padding(.top, 4)
             MentoringTextField()
                 .padding(.top, 16)
-            
-            Spacer()
-            
-           
-            
-            Nextbutton(title: "다음", isSelected: false, action: {print("next")})
-                .padding(.bottom, 21)
+            //공백 포함 최소 50자
+                .onChange(of: text) { newValue in
+                    isNextButtonEnabled = newValue.count >= 50
+                    
+                    Spacer()
+                    
+                    Group {
+                        Nextbutton(title: "다음", isAbled: true, action: {print("next")})
+                            .padding(.bottom, 21)
+                    }
+                    .disabled(!isNextButtonEnabled)
+                }
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(leading: btnBack)
         }
         .padding(.horizontal, 26)
-        
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: btnBack)
-        
         .background(Color.init(hex: "F9F9F9"))
     }
-}
-
-struct Sending3_Previews: PreviewProvider {
-    static var previews: some View {
-        Sending3()
+    
+    struct Sending3_Previews: PreviewProvider {
+        static var previews: some View {
+            Sending3()
+        }
     }
 }
