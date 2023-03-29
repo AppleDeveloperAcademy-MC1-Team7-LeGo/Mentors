@@ -10,16 +10,17 @@ import SwiftUI
 struct Sending2: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State private var text: String = ""
     
     var btnBack : some View {
         Button(action: {
-        self.presentationMode.wrappedValue.dismiss()
+            self.presentationMode.wrappedValue.dismiss()
             
         }) {
-        HStack {
-            Image(systemName: "chevron.backward")
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
+            HStack {
+                Image(systemName: "chevron.backward")
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
             }
         }
     }
@@ -32,12 +33,13 @@ struct Sending2: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
                 .padding(.top, 40)
-            MentorsTextField()
+            MentorsTextField(text: $text)
                 .padding(.top, 20)
             
             Spacer()
             
-            Nextbutton(title: "다음", isSelected: false, action: {print("next")})
+            //텍스트필드에 썼을 때 다음이 활성화되도록 어떻게 하죠?
+            Nextbutton(title: "다음", isAbled: false, action: {print("next")})
                 .padding(.bottom, 418)
         }
         .padding(.horizontal, 26)
