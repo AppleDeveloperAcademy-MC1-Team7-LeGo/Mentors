@@ -61,6 +61,7 @@ struct Sending1: View {
             }
             
             if selectButton == .team {
+//                MentorsTextField에 '팀 이름을 정확하게 적어주세요'를 넣어야 하는데 어떻게 넣나요??ㅠㅠ
                 MentorsTextField(text: $teamName)
                     .padding(.top, 20)
                     .padding(.bottom, 80)
