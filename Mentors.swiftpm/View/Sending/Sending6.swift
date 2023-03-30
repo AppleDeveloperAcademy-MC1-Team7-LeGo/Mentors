@@ -177,12 +177,6 @@ struct Check: View {
                     
                     Spacer()
                 }
-                .background(RoundedRectangle(
-                    cornerRadius: 10,
-                    style: .continuous
-                )
-                    .foregroundColor(Color(hex: "f7f5ef"))
-                )
             }
             .padding(.horizontal, 8)
             .padding(.bottom, 30)
