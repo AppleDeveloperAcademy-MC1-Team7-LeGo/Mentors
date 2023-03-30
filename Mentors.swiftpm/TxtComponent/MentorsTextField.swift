@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MentorsTextField: View {
-    @State var text: String
+    @Binding var text: String
     @State var placeholder: String
     
     var body: some View {
