@@ -11,23 +11,27 @@ struct Summary: View {
     
     @State private var feedback: String?
     @State private var feedbackPlaceHolder: String = "멘토링 후기를 입력하세요."
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var btnBack : some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+            
+        }) {
+            HStack {
+                Image(systemName: "chevron.backward")
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
+            }
+        }
+    }
     
     var body: some View {
         
         VStack(spacing: 6) {
             
             VStack {
-                
-                Button { } label: { Image(systemName: "chevron.backward") }
-                    .font(.sandoll(size: 24, weight: .regular))
-                    .foregroundColor(Color(hex: "292929"))
-                    .frame(
-                        maxWidth: .infinity,
-                        maxHeight: 44,
-                        alignment: .leading
-                    )
-                
-                Text("진행 중인 멘토링을 기록하세요")
+                Text("내 멘토링 기록 모아보기")
                     .font(.sandoll(size: 24, weight: .bold))
                     .foregroundColor(Color(hex: "292929"))
                     .frame(
@@ -40,7 +44,7 @@ struct Summary: View {
             .padding(.bottom, 30)
             
             HStack {
-                Image(uiImage: #imageLiteral(resourceName: "Leeo_LinkedIn_Profile_Image.jpeg"))
+                Image(uiImage: #imageLiteral(resourceName: "Leeo"))
                     .resizable()
                     .frame(width: 60, height: 60)
                     .clipShape(Circle())
@@ -164,15 +168,8 @@ struct Summary: View {
             }
             .padding(.horizontal, 8)
         }
-        .padding(.horizontal, 16)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(hex: "f9f9f9"))
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: btnBack)
         
-    }
-}
-
-struct Summary_Previews: PreviewProvider {
-    static var previews: some View {
-        Summary()
     }
 }

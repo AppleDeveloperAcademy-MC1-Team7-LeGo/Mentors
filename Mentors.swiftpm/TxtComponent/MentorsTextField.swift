@@ -9,14 +9,14 @@ import SwiftUI
 
 struct MentorsTextField: View {
     @State var text: String
-    
+    @State var placeholder: String
     
     var body: some View {
         ZStack {
             TextField("", text: $text)
                 .placeholder(when: text.isEmpty, placeholder: {
-                    //아래 Text("") <-요 부분에 뭘 넣어야 하죠?? placeholder가 sending1과 sending2 각각 달라야 해요
-                    Text("")
+                    // 아래 Text("") <-요 부분에 뭘 넣어야 하죠?? placeholder가 sending1과 sending2 각각 달라야 해요 → 해결! Notion 참고
+                    Text("\(placeholder)")
                         .fontWeight(.medium)
                         .foregroundColor(Color.init(hex: "AAA48E"))
                 })
@@ -30,16 +30,6 @@ struct MentorsTextField: View {
                         .frame(height: 1.2)
                 }
         }
-        //        .padding(.horizontal, 26)
-        //        .frame(width: UIScreen.main.bounds.width - 26)
         
-    }
-}
-
-
-struct MentorsTextField_Previews: PreviewProvider {
-    static var previews: some View {
-        MentorsTextField(text: "")
-//         MentorsTextField(text: "")
     }
 }
