@@ -55,3 +55,5 @@ struct ContentView: View {
         }
     }
 }
+
+// tabItem 각각에 tag를 0부터 4까지 달아주고 @State private var selectedTab에 앱을 켜면 열 tab의 tag를 적어주면 해당 tabItem부터 열립니다.
