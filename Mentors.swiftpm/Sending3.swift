@@ -44,6 +44,7 @@ struct Sending3: View {
             
             MentoringTextField(text: $text)
                 .padding(.top, 16)
+                .padding(.bottom, 26)
             
             Spacer()
             
@@ -51,7 +52,7 @@ struct Sending3: View {
             Nextbutton(title: "다음", isAbled: text.count >= 50) {
                 navigationIsActive = true
             }
-            .padding(.bottom, 21)
+            .padding(.bottom, 55)
         }
         .padding(.horizontal, 26)
         .background(Color.init(hex: "F9F9F9"))
