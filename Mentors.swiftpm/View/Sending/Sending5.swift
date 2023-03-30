@@ -10,6 +10,7 @@ import SwiftUI
 struct SendingFiveView: View {
     
     var body: some View {
+       
         
         ScrollView {
             // 좌로 정렬 VStack
@@ -57,15 +58,11 @@ struct SendingFiveView: View {
                         Button(action:{}) {
                             Tag(keywordText: "소통", keywordBgColor: "FDF4D1")
                         }
-                        Button(action:{}) {
-                            Tag(keywordText: "회고", keywordBgColor: "FDF4D1")
-                        }
+                        ColorChangeCustomButton(namename: "# 회고")
                         Button(action:{}) {
                             Tag(keywordText: "기록", keywordBgColor: "FDF4D1")
                         }
-                        Button(action:{}) {
-                            Tag(keywordText: "CBL", keywordBgColor: "FDF4D1")
-                        }
+                        ColorChangeCustomButton(namename: "# CBL")
                     }
                     .padding(.bottom, 5)
                     

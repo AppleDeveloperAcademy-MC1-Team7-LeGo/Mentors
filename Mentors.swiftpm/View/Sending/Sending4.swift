@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SendingFourView: View {
     var body: some View {
+
         
         // 좌로 정렬 VStack
         VStack {
@@ -38,7 +39,7 @@ struct SendingFourView: View {
             HStack {
                 
                 // VStack-HStack-Button
-                Button(action: {}) {
+                Button(action:  {}) {
                     VStack {
                         Image(systemName: "square.and.arrow.up.fill")
                             .resizable()
