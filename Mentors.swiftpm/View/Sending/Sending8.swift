@@ -145,7 +145,9 @@ struct SendingEightView: View {
                 }
             }
             .padding()
+            .background(Color(hex: "f9f9f9"))
         }
+ 
         .popup(isPresented: $isPopupShowing) {
             VStack(alignment: .center) {
                 Text("'리이오' 멘토에게 사연을 보낼까요?")
