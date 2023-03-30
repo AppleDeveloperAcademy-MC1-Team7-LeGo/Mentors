@@ -11,7 +11,7 @@ struct Home: View {
     @State private var isNavigateToRecord: Bool = false
     @State private var isNavigateToSending: Bool = false
     @State private var isNavigateToSummary: Bool = false
-    @State var isShowRecordButton: Bool = false
+    @Binding var isShowRecordButton: Bool
     
     var body: some View {
         NavigationView {
@@ -66,11 +66,5 @@ struct Home: View {
             .padding(.horizontal, 26)
         }
         .navigationBarBackButtonHidden(true)
-    }
-}
-
-struct home_Previews: PreviewProvider {
-    static var previews: some View {
-        Home()
     }
 }

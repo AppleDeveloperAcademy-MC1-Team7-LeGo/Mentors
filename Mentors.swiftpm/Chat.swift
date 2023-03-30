@@ -20,6 +20,7 @@ struct Chat: View {
                                        "calendar": "캘린더"]
     @State private var showNextMessage: Int = 0
     @State private var showTabBarButton: Bool = false
+    @Binding var isShowRecordButton: Bool
     
     private let avPlayer: [AVPlayer] = [
         AVPlayer(url:  Bundle.main.url(forResource: "chat1", withExtension: "mp4")!),
@@ -249,6 +250,7 @@ struct Chat: View {
                                                 avPlayer[1].play()
                                                 avPlayer[2].pause()
                                             } else if showNextMessage >= 2 {
+                                                self.isShowRecordButton = true
                                                 avPlayer[0].pause()
                                                 avPlayer[1].pause()
                                                 avPlayer[2].seek(to: .zero)
@@ -306,11 +308,5 @@ struct Chat: View {
         } else {
             // Fallback on earlier versions
         }
-    }
-}
-
-struct Chat_Previews: PreviewProvider {
-    static var previews: some View {
-        Chat()
     }
 }

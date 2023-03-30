@@ -2,8 +2,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var index: Int = 2
-    
+    @State var isShowRecordButton: Bool = false
     var body: some View {
+        
         //탭바
         //홈 버튼이 기본 활성화가 되어야 해요
         //각 버튼에서 링크 연결 필요한 것들이 있어요
@@ -22,18 +23,18 @@ struct ContentView: View {
                         Image(systemName: "square.on.square.badge.person.crop")
                     }
                     .tag(1)
-                Home()
+                Home(isShowRecordButton: $isShowRecordButton)
                     .toolbar(.hidden, for: .automatic)
                     .tabItem {
                         Image(systemName: "house")
                     }
                     .tag(2)
                 NavigationView {
-                    Chat()
+                    Chat(isShowRecordButton: $isShowRecordButton)
                 }
                 .tabItem {
                     NavigationLink {
-                        Chat()
+                        Chat(isShowRecordButton: $isShowRecordButton)
                             .toolbar(.hidden, for: .tabBar)
                     } label: {
                         Image(systemName: "ellipsis.message")
