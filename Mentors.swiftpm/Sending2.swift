@@ -11,6 +11,7 @@ struct Sending2: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var text: String = ""
+    @State private var navigationIsActive: Bool = false
     
     var btnBack : some View {
         Button(action: {
@@ -34,20 +35,15 @@ struct Sending2: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
                     .padding(.top, 40)
-                //            이거 아래 MentorsTextField에 멘트를 넣어야 하는데 어떻게 넣어야 하나요..?
-                            MentorsTextField(text: text, placeholder: "멘토들이 알아보기 쉽게 적어주는 센스!")
+                MentorsTextField(text: $text, placeholder: "멘토들이 알아보기 쉽게 적어주는 센스!")
                     .padding(.top, 20)
                 
                 Spacer()
                 
-                //            텍스트필드에 썼을 때 '다음'이 활성화되도록 어떻게 하죠?
-                // TODO: 일단 활성화되는 것으로 할게요!
-                //            if MentoringTextField() != .none {
-                NavigationLink(destination: Sending3()) {
-                    Nextbutton(title: "다음", isAbled: true, action: {})
-                        .padding(.bottom, 418)
+                Nextbutton(title: "다음", isAbled: text != "") {
+                    navigationIsActive = true
                 }
-                //            }
+                .padding(.bottom, 418)
             }
             .padding(.horizontal, 26)
         }
@@ -56,5 +52,8 @@ struct Sending2: View {
         .navigationBarItems(leading: btnBack)
         
         .background(Color.init(hex: "F9F9F9"))
+        .background(EmptyNavigationLink(isActive: $navigationIsActive, {
+            Sending3()
+        }))
     }
 }
