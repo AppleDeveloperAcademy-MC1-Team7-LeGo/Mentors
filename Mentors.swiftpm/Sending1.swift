@@ -15,7 +15,8 @@ enum SelectedButtonType {
 
 struct Sending1: View {
     @State private var selectButton: SelectedButtonType = .none
-    @State private var teamName: String = ""
+    @State private var teamName: String = .init()
+    @State private var navigationIsActive: Bool = false
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -58,16 +59,15 @@ struct Sending1: View {
             }
             
             if selectButton == .team {
-                MentorsTextField(text: teamName, placeholder: "팀 이름을 정확하게 적어주세요")
+                MentorsTextField(text: $teamName, placeholder: "팀 이름을 정확하게 적어주세요")
                     .padding(.top, 20)
                     .padding(.bottom, 80)
             }
             
             // Next Button
             if selectButton != .none {
-                NavigationLink(destination: Sending2()) {
-                    // TODO: "팀" 버튼 선택시 텍스트필드가 비어있으면 버튼 disabled
-                    Nextbutton(title: "다음", isAbled: true) {}
+                Nextbutton(title: "다음", isAbled: (selectButton == .personal) || ((selectButton == .team) && (teamName != ""))) {
+                    navigationIsActive = true
                 }
                 .padding(.top, selectButton == .personal ? 134 : 0)
             }
@@ -75,6 +75,9 @@ struct Sending1: View {
         }
         .padding(.horizontal, 26)
         .background(Color.init(hex: "F9F9F9"))
+        .background(EmptyNavigationLink(isActive: $navigationIsActive, {
+            Sending2()
+        }))
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: btnBack)
     }
