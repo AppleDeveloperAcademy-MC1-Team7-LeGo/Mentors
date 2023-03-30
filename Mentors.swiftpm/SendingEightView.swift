@@ -120,7 +120,7 @@ struct SendingEightView: View {
                 HStack {
                     Button {
                         isPopupShowing = false
-                        // TODO: pop to root view
+                        NavigationUtil.popToRootView()
                     } label: {
                         Text("네, 보낼게요")
                             .padding(.vertical, 15)
