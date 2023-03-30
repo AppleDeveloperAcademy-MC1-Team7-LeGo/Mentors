@@ -45,7 +45,7 @@ struct SendingEightView: View {
                     // VStack-Button(3)
                     Button(action: {}) {
                         HStack {
-                            MentorTag(mentorKoreanName: "도라", mentorEnglishName: "Dora", mentorStrength: "Design", strengthColorCode: "DAEEC6")
+                            MentorTag(mentorKoreanName: "도라", mentorEnglishName: "Dora", mentorStrength: " Design ", strengthColorCode: "DAEEC6")
                         }
                     }
                     
@@ -54,49 +54,49 @@ struct SendingEightView: View {
                         isPopupShowing = true
                     }) {
                         HStack {
-                            MentorTag(mentorKoreanName: "리이오", mentorEnglishName: "Leeo", mentorStrength: "Tech", strengthColorCode: "CEE1F3")
+                            MentorTag(mentorKoreanName: "리이오", mentorEnglishName: "Leeo", mentorStrength: " Tech     ", strengthColorCode: "CEE1F3")
                         }
                     }
                     
                     // VStack-Button(5)
                     Button(action: {}) {
                         HStack {
-                            MentorTag(mentorKoreanName: "린다", mentorEnglishName: "Rinda", mentorStrength: "Design", strengthColorCode: "DAEEC6")
+                            MentorTag(mentorKoreanName: "린다", mentorEnglishName: "Rinda", mentorStrength: " Design ", strengthColorCode: "DAEEC6")
                         }
                     }
                     
                     // VStack-Button(6)
                     Button(action: {}) {
                         HStack {
-                            MentorTag(mentorKoreanName: "링고", mentorEnglishName: "Lingo", mentorStrength: "Tech", strengthColorCode: "CEE1F3")
+                            MentorTag(mentorKoreanName: "링고", mentorEnglishName: "Lingo", mentorStrength: " Tech     ", strengthColorCode: "CEE1F3")
                         }
                     }
                     
                     // VStack-Button(7)
                     Button(action: {}) {
                         HStack {
-                            MentorTag(mentorKoreanName: "사야", mentorEnglishName: "Saya", mentorStrength: "Design", strengthColorCode: "DAEEC6")
+                            MentorTag(mentorKoreanName: "사야", mentorEnglishName: "Saya", mentorStrength: " Design ", strengthColorCode: "DAEEC6")
                         }
                     }
                     
                     // VStack-Button(8)
                     Button(action: {}) {
                         HStack {
-                            MentorTag(mentorKoreanName: "섭", mentorEnglishName: "Sup", mentorStrength: "Design", strengthColorCode: "DAEEC6")
+                            MentorTag(mentorKoreanName: "섭", mentorEnglishName: "Sup", mentorStrength: " Design ", strengthColorCode: "DAEEC6")
                         }
                     }
                     
                     // VStack-Button(9)
                     Button(action: {}) {
                         HStack {
-                            MentorTag(mentorKoreanName: "아이작", mentorEnglishName: "Issac", mentorStrength: "Tech", strengthColorCode: "CEE1F3")
+                            MentorTag(mentorKoreanName: "아이작", mentorEnglishName: "Issac", mentorStrength: " Tech     ", strengthColorCode: "CEE1F3")
                         }
                     }
                     
                     // VStack-Button(10)
                     Button(action: {}) {
                         HStack {
-                            MentorTag(mentorKoreanName: "영", mentorEnglishName: "Young", mentorStrength: "Tech", strengthColorCode: "CEE1F3")
+                            MentorTag(mentorKoreanName: "영", mentorEnglishName: "Young", mentorStrength: " Tech     ", strengthColorCode: "CEE1F3")
                         }
                     }
                     .padding(.bottom, 40)

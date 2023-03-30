@@ -10,6 +10,7 @@ import SwiftUI
 struct SendingFiveView: View {
     
     var body: some View {
+       
         
         ScrollView {
             // 좌로 정렬 VStack
@@ -33,8 +34,8 @@ struct SendingFiveView: View {
                 // VStack-Group-하나의 Stack에 최대 10개 뷰만 가능해서 Group으로 묶음.
                 Group {
                     // VStack-Group-HStack(1)
-                    HStack {
-                        Button(action:{}) {
+                    HStack { Button(action:{
+                    }) {
                             Image(systemName: "pencil.tip")
                                 .resizable()
                                 .frame(width: 20, height: 27)
@@ -57,15 +58,11 @@ struct SendingFiveView: View {
                         Button(action:{}) {
                             Tag(keywordText: "소통", keywordBgColor: "FDF4D1")
                         }
-                        Button(action:{}) {
-                            Tag(keywordText: "회고", keywordBgColor: "FDF4D1")
-                        }
+                        ColorChangeImageButton(namename: "# 회고")
                         Button(action:{}) {
                             Tag(keywordText: "기록", keywordBgColor: "FDF4D1")
                         }
-                        Button(action:{}) {
-                            Tag(keywordText: "CBL", keywordBgColor: "FDF4D1")
-                        }
+                        ColorChangeImageButton(namename: "# CBL")
                     }
                     .padding(.bottom, 5)
                     
@@ -159,7 +156,7 @@ struct SendingFiveView: View {
                             Tag(keywordText: "Swift Student Challenge", keywordBgColor: "CEE1F3")
                         }
                     }
-                    .padding(.bottom, 30)
+                    .padding(.bottom, 28)
                 }
                 
                 // VStack-Button

@@ -35,7 +35,7 @@ struct MentorTag: View {
             .padding(14)
             .background(Color(hex: "\(strengthColorCode)"))
             .cornerRadius(10)
-            .fixedSize()
+            .fixedSize(horizontal: false, vertical: true)
     }
 }
 
