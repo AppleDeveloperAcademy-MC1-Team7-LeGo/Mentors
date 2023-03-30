@@ -10,15 +10,18 @@ import SwiftUI
 struct LogoView: View {
     var body: some View {
         NavigationView {
-            NavigationLink(destination: Home()){
+            NavigationLink(destination: ContentView()){
                 Image("logo")
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
+
+
 
 struct LogoView_Previews: PreviewProvider {
     static var previews: some View {
