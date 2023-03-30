@@ -17,7 +17,7 @@ let package = Package(
             name: "Mentors",
             targets: ["AppModule"],
             bundleIdentifier: "pos.academy.Mentors",
-            teamIdentifier: "78W7B5CV94",
+            teamIdentifier: "47N48U5HD5",
             displayVersion: "1.0",
             bundleVersion: "1",
             appIcon: .placeholder(icon: .carrot),
