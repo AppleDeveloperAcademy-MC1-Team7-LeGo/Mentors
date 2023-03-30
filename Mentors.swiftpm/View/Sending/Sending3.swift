@@ -59,7 +59,7 @@ struct Sending3: View {
         }
         .padding(.bottom, 55)
         .padding(.horizontal, 26)
-        .background(Color.init(hex: "F9F9F9"))
+        .background(Color.init(hex: "f9f9f9"))
         .background(EmptyNavigationLink(isActive: $navigationIsActive, {
             SendingFourView()
             // 버튼 최소 50자 이상 나오도록 하는 코드

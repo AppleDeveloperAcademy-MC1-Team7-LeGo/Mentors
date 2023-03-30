@@ -52,10 +52,8 @@ struct Sending2: View {
             }
             .padding(.horizontal, 26)
         }
-        
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: btnBack)
-        
         .background(Color.init(hex: "F9F9F9"))
         .background(EmptyNavigationLink(isActive: $navigationIsActive, {
             Sending3()
