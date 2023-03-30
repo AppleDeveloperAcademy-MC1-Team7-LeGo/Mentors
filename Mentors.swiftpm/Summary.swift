@@ -31,6 +31,7 @@ struct Summary: View {
         
         VStack(spacing: 6) {
             
+            // 페이지 제목 섹션
             VStack {
                 
                 Text("내 멘토링 기록 모아보기")
@@ -43,8 +44,11 @@ struct Summary: View {
                     )
                 
             }
-            .padding(.bottom, 30)
+            .padding(.bottom, 26)
+            .padding(.horizontal, 16)
+            .padding(.top, 20)
             
+            // 멘토 프로필 섹션
             HStack {
                 Image(uiImage: #imageLiteral(resourceName: "Leeo"))
                     .resizable()
@@ -74,7 +78,9 @@ struct Summary: View {
                     )
             }
             .padding(.bottom, 20)
+            .frame(maxWidth: 338)
             
+            // 신청 내역, 멘토의 기록, 팀의 기록 섹션
             VStack {
                 
                 HStack {
@@ -92,7 +98,7 @@ struct Summary: View {
                         )
                         .padding(.trailing, 12)
                 }
-                .frame(maxWidth: .infinity, maxHeight: 48)
+                .frame(maxWidth: 338, maxHeight: 48)
                 .background(Color(hex: "f7f5ef"))
                 .cornerRadius(10)
                 .padding(.bottom, 16)
@@ -112,7 +118,7 @@ struct Summary: View {
                         )
                         .padding(.trailing, 12)
                 }
-                .frame(maxWidth: .infinity, maxHeight: 48)
+                .frame(maxWidth: 338, maxHeight: 48)
                 .background(Color(hex: "f7f5ef"))
                 .cornerRadius(10)
                 .padding(.bottom, 16)
@@ -132,13 +138,14 @@ struct Summary: View {
                         )
                         .padding(.trailing, 12)
                 }
-                .frame(maxWidth: .infinity, maxHeight: 48)
+                .frame(maxWidth: 338, maxHeight: 48)
                 .background(Color(hex: "f7f5ef"))
                 .cornerRadius(10)
-                .padding(.bottom, 40)
+                .padding(.bottom, 30)
                 
             }
             
+            // 후기 섹션
             VStack(alignment: .leading, spacing: 0) {
                 
                 Text("후기")
@@ -155,7 +162,7 @@ struct Summary: View {
                         .font(.sandoll(size: 14, weight: .medium))
                         .foregroundColor(Color(hex: "292929"))
                         .multilineTextAlignment(.leading)
-                        .frame(height: 240)
+                        .frame(height: 200)
                     
                     Text(feedback ?? feedbackPlaceHolder)
                         .offset(x: 16, y: 19)
@@ -168,11 +175,11 @@ struct Summary: View {
                 .padding(.bottom, 16)
                 
             }
-            .padding(.horizontal, 8)
+            .frame(maxWidth: 338)
         }
+        .background(Color(hex: "f9f9f9"))
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: btnBack)
         
     }
 }
-

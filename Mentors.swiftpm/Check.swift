@@ -169,17 +169,20 @@ struct Check: View {
             .padding(.horizontal, 8)
             .padding(.bottom, 30)
             
-            HStack {
-                VStack {
-                    NavigationLink(destination: Sending7View()) {
-                        customDoneButton(buttonName: "작성 완료", background_hex: "f6d555", foreground_hex: "292929")
-                    }
+            ZStack {
+                NavigationLink(destination: Sending7View()) {
+                    Text("작성 완료")
+                        .font(.sandoll(size: 18, weight: .semibold))
+                        .foregroundColor(Color(hex: "292929"))
+                        .frame(width: 350, height: 48)
+                        .background(Color(hex: "F6D555"))
+                        .cornerRadius(10)
+//                    customDoneButton(buttonName: "작성 완료", background_hex: "f6d555", foreground_hex: "292929")
                 }
-                
             }
             .frame(
-                maxWidth: .infinity,
-                maxHeight: 80,
+                width: 338,
+                height: 48,
                 alignment: .center
             )
             
@@ -190,5 +193,3 @@ struct Check: View {
         .navigationBarBackButtonHidden(true)
     }
 }
-// TODO:
-// 현재도 문제 없이 작동하지만, 통일성을 위해 < 와 "진행 중인 멘토링을 기록하세요"를 고정시키면 좋을 듯
