@@ -17,7 +17,10 @@ struct Tag: View {
                 .font(.sandoll(size: 18, weight: .semibold))
                 .fixedSize()
                 .foregroundColor(Color(hex: "292929"))
-                .padding(15)
+                .padding(.leading, 15)
+                .padding(.trailing, 15)
+                .padding(.top, 9)
+                .padding(.bottom, 9)
                 .background(Color(hex: "\(keywordBgColor)"))
                 .cornerRadius(10)
     }

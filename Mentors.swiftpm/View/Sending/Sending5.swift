@@ -159,7 +159,7 @@ struct SendingFiveView: View {
                             Tag(keywordText: "Swift Student Challenge", keywordBgColor: "CEE1F3")
                         }
                     }
-                    .padding(.bottom, 30)
+                    .padding(.bottom, 28)
                 }
                 
                 // VStack-Button
