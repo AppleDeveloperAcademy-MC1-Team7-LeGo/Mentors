@@ -26,7 +26,7 @@ struct ColorChangeCustomButton: View {
                 Image(systemName: "x.square.fill")
                     .resizable()
                     .frame(width: 20, height: 20)
-                    .foregroundColor(Color(hex: "E5E2D7"))
+                    .foregroundColor(didTapTap ? Color(hex: "F9F9F9") : Color(hex: "E5E2D7"))
                     .padding(.bottom, 7)
                 Text("첨부하지 않음")
                     .font(.sandoll(size: 14, weight: .regular))
