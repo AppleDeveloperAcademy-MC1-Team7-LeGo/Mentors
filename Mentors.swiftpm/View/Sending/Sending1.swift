@@ -60,6 +60,11 @@ struct Sending1: View {
             
             if selectButton == .team {
                 MentorsTextField(text: $teamName, placeholder: "팀 이름을 정확하게 적어주세요")
+                    .onTapGesture {
+                        if teamName.isEmpty {
+                            teamName = "오전, 팀7"
+                        }
+                    }
                     .padding(.top, 20)
                     .padding(.bottom, 80)
             }

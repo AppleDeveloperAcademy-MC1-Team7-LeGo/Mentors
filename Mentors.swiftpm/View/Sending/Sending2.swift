@@ -36,6 +36,11 @@ struct Sending2: View {
                     .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
                     .padding(.top, 40)
                 MentorsTextField(text: $text, placeholder: "멘토들이 알아보기 쉽게 적어주는 센스!")
+                    .onTapGesture {
+                        if text.isEmpty {
+                            text = "팀 회고를 어떻게 해야하는지 모르겠어요."
+                        }
+                    }
                     .padding(.top, 20)
                 
                 Spacer()

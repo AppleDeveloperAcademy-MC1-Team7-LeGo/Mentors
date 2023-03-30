@@ -15,6 +15,21 @@ struct Sending7View: View {
     @State private var isPopupShowing: Bool = false
     @State private var goToNextView: Bool = false
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var btnBack : some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+            
+        }) {
+            HStack {
+                Image(systemName: "chevron.backward")
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
+            }
+        }
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("어떻게 멘토링할까요?")
@@ -116,5 +131,6 @@ struct Sending7View: View {
                 .backgroundColor(.black.opacity(0.5))
         }
         .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: btnBack)
     }
 }

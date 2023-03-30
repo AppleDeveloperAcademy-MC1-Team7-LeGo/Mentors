@@ -14,6 +14,21 @@ struct Check: View {
     @State private var title: String = "[오전, 팀7] 팀 회고를 어떻게 해야하는지 모르겠어요."
     @State private var mentoringContent: String = "안녕하세요 Leeo!\nMC1 오전 세션 Group3 Team7 LeGo 입니다.\n\n저희는 어제 발표가 끝남과 동시에 MC1 전반부가 마무리되었기 때문에 전반부에 대한 회고를 진행하려고 합니다.\n\n그런데 팀 회고가 처음이다 보니 어떻게 시작해야 할지 감이 잘 오지 않습니다.\n\n이에 멘토링을 요청합니다. 팀 회고를 어떻게 시작하고 어떻게 진행해야 하는지에 대해 도움을 주시면 감사하겠습니다."
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var btnBack : some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+            
+        }) {
+            HStack {
+                Image(systemName: "chevron.backward")
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
+            }
+        }
+    }
+    
     func customDoneButton(buttonName: String, background_hex: String, foreground_hex: String) -> AnyView {
         return AnyView(Button(buttonName) { }
             .frame(maxWidth: .infinity, maxHeight: 48)
@@ -203,5 +218,6 @@ struct Check: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(hex: "f9f9f9"))
         .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: btnBack)
     }
 }
