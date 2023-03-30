@@ -38,7 +38,7 @@ struct SendingFiveView: View {
                     }) {
                             Image(systemName: "pencil.tip")
                                 .resizable()
-                                .frame(width: 20, height: 27)
+                                .frame(width: 20)
                                 .foregroundColor(Color(hex: "292929"))
                                 .padding(10)
                         }
