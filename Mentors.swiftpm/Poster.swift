@@ -9,14 +9,18 @@ import SwiftUI
 
 struct Poster: View {
     var body: some View {
-        NavigationView {
-            NavigationLink(destination: LogoView()){
-                Image("poster1")
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea()
+        if #available(iOS 16.0, *) {
+            NavigationStack {
+                NavigationLink(destination: LogoView()){
+                    Image("poster1")
+                        .resizable()
+                        .scaledToFill()
+                        .ignoresSafeArea()
+                }
+                
             }
-            
+        } else {
+            fatalError("iOS 16 이하면 작동이 안 돼요")
         }
     }
 }
