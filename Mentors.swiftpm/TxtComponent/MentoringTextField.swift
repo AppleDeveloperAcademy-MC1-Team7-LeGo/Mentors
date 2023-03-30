@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct MentoringTextField: View {
-    @State private var text = ""
-    
-    //아래 TextEditor의 문제가 배경 rectangle과 텍스트가 따로 논다는 것입니다... 텍스트는 rectangle 하단에 써져요.
+    @Binding var text: String
+
     
     var body: some View {
         ZStack {
@@ -31,9 +30,9 @@ struct MentoringTextField: View {
         
     }
 }
-
-struct MentoringTextField_Previews: PreviewProvider {
-    static var previews: some View {
-        MentoringTextField()
-    }
-}
+//
+//struct MentoringTextField_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MentoringTextField()
+//    }
+//}

@@ -11,6 +11,7 @@ struct Home: View {
     @State private var isNavigateToRecord: Bool = false
     @State private var isNavigateToSending: Bool = false
     @State private var isNavigateToSummary: Bool = false
+    @Binding var isShowRecordButton: Bool
     
     var body: some View {
         NavigationView {
@@ -23,17 +24,19 @@ struct Home: View {
                 
                 //진행 중인 멘토링 기록하기
                 // TODO: 멘토링 시작 이후에 활성화되도록 만들어야해요
-                NavigationLink(isActive: $isNavigateToRecord) {
-                    Record()
-                } label: {
-                        Text("진행 중인 멘토링 기록하기")
-                            .fontWeight(.bold)
-                            .font(Font.custom("Apple SD Gothic Neo", size: 20))
-                            .frame(maxWidth: 400, minHeight: 48)
-                            .background(Color(hex: "E8585E"))
-                            .foregroundColor(Color.init(hex: "F9F9F9"))
-                            .cornerRadius(10)
-                            .padding(.top, 40)
+                if isShowRecordButton {
+                    NavigationLink(isActive: $isNavigateToRecord) {
+                        Record()
+                    } label: {
+                            Text("진행 중인 멘토링 기록하기")
+                                .fontWeight(.bold)
+                                .font(Font.custom("Apple SD Gothic Neo", size: 20))
+                                .frame(maxWidth: 400, minHeight: 48)
+                                .background(Color(hex: "E8585E"))
+                                .foregroundColor(Color.init(hex: "F9F9F9"))
+                                .cornerRadius(10)
+                                .padding(.top, 40)
+                    }
                 }
                 
                 //내비게이션
@@ -63,11 +66,5 @@ struct Home: View {
             .padding(.horizontal, 26)
         }
         .navigationBarBackButtonHidden(true)
-    }
-}
-
-struct home_Previews: PreviewProvider {
-    static var previews: some View {
-        Home()
     }
 }
