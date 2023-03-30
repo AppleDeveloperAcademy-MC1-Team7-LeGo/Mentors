@@ -60,23 +60,7 @@ struct SendingFourView: View {
                 Spacer()
                 
                 // VStack-HStack-Button
-                Button(action: {}) {
-                    VStack {
-                        Image(systemName: "x.square.fill")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color(hex: "E5E2D7"))
-                            .padding(.bottom, 7)
-                        Text("첨부하지 않음")
-                            .font(.sandoll(size: 14, weight: .regular))
-                            .foregroundColor(Color(hex: "292929"))
-                            .fixedSize()
-                    }
-                }
-                .fixedSize()
-                .frame(width: 140, height: 94)
-                .background(Color(hex: "F4F4F0"))
-                .cornerRadius(10)
+                ColorChangeCustomButton()
                 
             }
             .padding(.bottom, 24)

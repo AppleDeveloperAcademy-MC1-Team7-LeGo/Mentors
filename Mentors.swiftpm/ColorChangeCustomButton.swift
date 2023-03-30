@@ -9,34 +9,35 @@ import SwiftUI
 
 struct ColorChangeCustomButton: View {
     
-    var namename: String
     
-    init(namename: String) {
-        self.namename = namename
-    }
-    
-    @State private var didTap: Bool = false
+    @State private var didTapTap: Bool = false
     
     var body: some View {
         
         Button(action: {
-            if didTap{
-                self.didTap = false
+            if didTapTap{
+                self.didTapTap = false
             } else {
-                self.didTap = true
+                self.didTapTap = true
             }
             
         }) {
-            Text(namename)
-                .font(.sandoll(size: 18, weight: .semibold))
-                .fixedSize()
-                .foregroundColor(Color(hex: "292929"))
-                .padding(.leading, 15)
-                .padding(.trailing, 15)
-                .padding(.top, 9)
-                .padding(.bottom, 9)
+            VStack {
+                Image(systemName: "x.square.fill")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(Color(hex: "E5E2D7"))
+                    .padding(.bottom, 7)
+                Text("첨부하지 않음")
+                    .font(.sandoll(size: 14, weight: .regular))
+                    .foregroundColor(Color(hex: "292929"))
+                    .fixedSize()
+            }
+            .fixedSize()
+            .frame(width: 140, height: 94)
+            .cornerRadius(10)
         }
-        .background(didTap ? Color(hex: "F6D555") : Color(hex: "FDF4D1"))
+        .background(didTapTap ? Color(hex: "F6D555") : Color(hex: "F4F4F0"))
         .cornerRadius(10)
     }
 }

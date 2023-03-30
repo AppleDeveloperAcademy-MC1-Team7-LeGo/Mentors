@@ -58,11 +58,11 @@ struct SendingFiveView: View {
                         Button(action:{}) {
                             Tag(keywordText: "소통", keywordBgColor: "FDF4D1")
                         }
-                        ColorChangeCustomButton(namename: "# 회고")
+                        ColorChangeImageButton(namename: "# 회고")
                         Button(action:{}) {
                             Tag(keywordText: "기록", keywordBgColor: "FDF4D1")
                         }
-                        ColorChangeCustomButton(namename: "# CBL")
+                        ColorChangeImageButton(namename: "# CBL")
                     }
                     .padding(.bottom, 5)
                     
