@@ -25,7 +25,7 @@ struct SendingFiveView: View {
                     .padding(.bottom, 7)
                 
                 // VStack-Text
-                Text("멘토들이 이해하기 쉽도록 5개 이하루 적어주는 센스!")
+                Text("멘토들이 이해하기 쉽도록 5개 이하로 적어주는 센스!")
                     .font(.custom("Apple SD Gothic Neo", size: 14))
                     .fontWeight(.regular)
                     .foregroundColor(Color(hex: "292929"))
