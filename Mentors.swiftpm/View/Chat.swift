@@ -289,16 +289,20 @@ struct Chat: View {
                 }
                 .background(Color(hex: "F7F5EF"))
             }
+            .ignoresSafeArea()
             .onAppear {
                 showTabBarButton = false
                 showNextMessage = 0
-            }
-            .ignoresSafeArea()
-            .onAppear {
                 avPlayer[0].seek(to: .zero)
                 avPlayer[0].play()
                 avPlayer[1].pause()
                 avPlayer[2].pause()
+            }
+            .onDisappear {
+                for player in avPlayer {
+                    player.pause()
+                    player.seek(to: .zero)
+                }
             }
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: btnBack)

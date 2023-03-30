@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var index: Int = 2
     @State var isShowRecordButton: Bool = false
+    private let disableIndex = [0, 1, 4]
     var body: some View {
         
         //탭바
@@ -49,6 +50,11 @@ struct ContentView: View {
                     .tag(4)
             }
             .navigationBarBackButtonHidden(true)
+            .onChange(of: index) { _ in
+                if disableIndex.contains(index) {
+                    index = 2
+                }
+            }
             
         } else {
             fatalError("iOS 16 이상만 작동해요")
