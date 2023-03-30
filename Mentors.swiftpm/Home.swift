@@ -37,7 +37,12 @@ struct Home: View {
                 
                 //내비게이션
                 NavigationLink(isActive: $isNavigate) {
-                    Sending1()
+                    if #available(iOS 16, *) {
+                        Sending1()
+                            .toolbar(.hidden, for: .tabBar)
+                    } else {
+                        Sending1()
+                    }
                 } label: {
                     HomeMentoringButton(title: "내 멘토링 사연 보내기", isSelected: true, action: {
                         isNavigate = true
@@ -47,7 +52,7 @@ struct Home: View {
                     .padding(.top, 68)
                 }
                 NavigationLink(isActive: $isNavigate) {
-                    Sending1() //연결되는 뷰 링크 변경해야함
+                    Summary()
                 } label: {
                     HomeMentoringButton(title: "내 멘토링 기록 모아보기", isSelected: true, action: {
                         isNavigate = true
@@ -77,7 +82,11 @@ struct Home: View {
                         }
                     Text("")
                         .tabItem {
-                            Image(systemName: "ellipsis.message")
+                            NavigationLink {
+                                Chat()
+                            } label: {
+                                Image(systemName: "ellipsis.message")
+                            }
                         }
                     Text("")
                         .tabItem {
@@ -88,31 +97,6 @@ struct Home: View {
             .padding(.horizontal, 26)
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    //    spending1로 연결되는 내비게이션뷰
-    //    {
-    //        NavigationView {
-    //            NavigationLink(isActive: $isNavigate) {
-    //                Sending1()
-    //            } label: {
-    //                Button {
-    //                    isNavigate = true
-    //                } label: {
-    //                    Text("다음 화면으로")
-    //                        .fontWeight(.semibold)
-    //                        .frame(width: 200, height: 100)
-    //                        .cornerRadius(8)
-    //                        .border(Color.blue, width: 1)
-    //                }
-    //            }
-    //        }
-    //    }
 }
 
 struct home_Previews: PreviewProvider {

@@ -22,7 +22,10 @@ struct Chat: View {
     
     @State var mainScene = SKScene()
     
-    private let avPlayer = AVPlayer(url:  Bundle.main.url(forResource: "Mentoring", withExtension: "mp4")!)
+    private let avPlayer: [AVPlayer] = [
+        AVPlayer(url:  Bundle.main.url(forResource: "chat1", withExtension: "mp4")!),
+        AVPlayer(url:  Bundle.main.url(forResource: "chat2", withExtension: "mp4")!),
+        AVPlayer(url:  Bundle.main.url(forResource: "chat3", withExtension: "mp4")!)]
     
     func toggleButtons() {
         focusMessageField = false
@@ -43,7 +46,7 @@ struct Chat: View {
                                 .font(.sandoll(size: 10, weight: .medium))
                                 .foregroundColor(Color(hex: "292929"))
                                 .padding(.leading, 5)
-                            Text("안녕하세요. Team LeGo에게 도움을 줄 수 있을 것 같아서 채팅을 보내요. 혹시 지금 카페테리아에서 멘토링 괜찮아요?")
+                            Text("안녕하십니까. 저에게 멘토링을 요청하셨더라고요. 지금 어디신가요? 그리고 지금 당장 멘토링 해도 괜찮을까요?")
                                 .font(.sandoll(size: 14, weight: .medium))
                                 .padding(.vertical, 5)
                                 .padding(.horizontal, 10)
@@ -72,7 +75,7 @@ struct Chat: View {
                                     .font(.sandoll(size: 10, weight: .medium))
                                     .foregroundColor(Color(hex: "292929"))
                                     .padding(.trailing, 5)
-                                Text("안녕하세요, Leeo. 저희의 사연에 응답해 주셔서 감사합니다. 네, 지금 카페테리아에서 멘토링 괜찮습니다. 지금 저희 모두 카페테리아에 있어요.")
+                                Text("안녕하세요, Leeo. 저희의 사연에 응답해 주셔서 감사합니다. 저희는 지금 콜랩에 있습니다. 지금 당장 가능합니다.")
                                     .font(.sandoll(size: 14, weight: .medium))
                                     .padding(.vertical, 5)
                                     .padding(.horizontal, 11)
@@ -99,7 +102,7 @@ struct Chat: View {
                                     .font(.sandoll(size: 10, weight: .medium))
                                     .foregroundColor(Color(hex: "292929"))
                                     .padding(.leading, 5)
-                                Text("좋습니다. 바로 가겠습니다.")
+                                Text("좋아요. 지금 바로 갈게요.")
                                     .font(.sandoll(size: 14, weight: .medium))
                                     .padding(.vertical, 5)
                                     .padding(.horizontal, 10)
@@ -155,11 +158,26 @@ struct Chat: View {
                 
                 Spacer()
                 
-                VideoPlayer(player: avPlayer)
-                    .onDisappear {
-                        avPlayer.isMuted = false
-                    }
-                    .frame(width: 250, height: 250)
+                if showNextMessage == 0 {
+                    VideoPlayer(player: avPlayer[0])
+                        .onDisappear {
+                            avPlayer[0].isMuted = true
+                        }
+                        .frame(width: 250, height: 250)
+                } else if showNextMessage == 1 {
+                    VideoPlayer(player: avPlayer[1])
+                        .onDisappear {
+                            avPlayer[1].isMuted = true
+                        }
+                        .frame(width: 250, height: 250)
+                } else {
+                    VideoPlayer(player: avPlayer[2])
+                        .onDisappear {
+                            avPlayer[1].isMuted = true
+                        }
+                        .frame(width: 250, height: 250)
+                }
+
                 
                 Spacer()
                 
@@ -197,6 +215,15 @@ struct Chat: View {
                                     
                                     Button {
                                         showNextMessage += 1
+                                        if showNextMessage == 1 {
+                                            avPlayer[0].pause()
+                                            avPlayer[1].play()
+                                            avPlayer[2].pause()
+                                        } else if showNextMessage >= 2 {
+                                            avPlayer[0].pause()
+                                            avPlayer[1].pause()
+                                            avPlayer[2].play()
+                                        }
                                     } label: {
                                         Image(systemName: "paperplane")
                                             .foregroundColor(Color(hex: "F9F9F9"))
@@ -233,7 +260,9 @@ struct Chat: View {
         .navigationTitle("리이오")
         .ignoresSafeArea()
         .onAppear {
-            avPlayer.play()
+            avPlayer[0].play()
+            avPlayer[1].pause()
+            avPlayer[2].pause()
         }
     }
 }
