@@ -41,6 +41,8 @@ struct SendingFourView: View {
                 Button(action: {}) {
                     VStack {
                         Image(systemName: "square.and.arrow.up.fill")
+                            .resizable()
+                            .frame(width: 20, height: 25)
                             .foregroundColor(Color(hex: "F6D555"))
                             .padding(.bottom, 7)
                         Text("파일 또는 사진 첨부")
@@ -60,6 +62,8 @@ struct SendingFourView: View {
                 Button(action: {}) {
                     VStack {
                         Image(systemName: "x.square.fill")
+                            .resizable()
+                            .frame(width: 20, height: 20)
                             .foregroundColor(Color(hex: "E5E2D7"))
                             .padding(.bottom, 7)
                         Text("첨부하지 않음")
