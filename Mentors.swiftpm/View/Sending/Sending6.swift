@@ -152,19 +152,39 @@ struct Check: View {
                 }
                 .padding(.bottom, 12)
                 
-                Text(Image(systemName: "x.square.fill"))
-                    .foregroundColor(Color(hex: "e5e2d7"))
-                    .fixedSize(horizontal: false, vertical: true)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(RoundedRectangle(
-                            cornerRadius: 10,
-                            style: .continuous
-                        )
-                        .foregroundColor(Color(hex: "f7f5ef"))
-                    )
-                
+                HStack {
+                    Text("# 회고")
+                        .font(.sandoll(size: 18, weight: .semibold))
+                        .fixedSize()
+                        .foregroundColor(Color(hex: "292929"))
+                        .padding(.leading, 15)
+                        .padding(.trailing, 15)
+                        .padding(.top, 9)
+                        .padding(.bottom, 9)
+                        .background(Color(hex: "F6D555"))
+                        .cornerRadius(10)
+                        .frame(maxWidth: .infinity)
+                    
+                    Text("# CBL")
+                        .font(.sandoll(size: 18, weight: .semibold))
+                        .fixedSize()
+                        .foregroundColor(Color(hex: "292929"))
+                        .padding(.leading, 15)
+                        .padding(.trailing, 15)
+                        .padding(.top, 9)
+                        .padding(.bottom, 9)
+                        .background(Color(hex: "F6D555"))
+                        .cornerRadius(10)
+                        .frame(maxWidth: .infinity)
+                    
+                    Spacer()
+                }
+                .background(RoundedRectangle(
+                    cornerRadius: 10,
+                    style: .continuous
+                )
+                    .foregroundColor(Color(hex: "f7f5ef"))
+                )
             }
             .padding(.horizontal, 8)
             .padding(.bottom, 30)
