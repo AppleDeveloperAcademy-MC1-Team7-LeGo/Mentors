@@ -20,18 +20,23 @@ struct Record: View {
             .cornerRadius(10)
         )
     }
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var btnBack : some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+            
+        }) {
+            HStack {
+                Image(systemName: "chevron.backward")
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
+            }
+        }
+    }
     
     var body: some View {
         VStack {
-            
-            Button { } label: { Image(systemName: "chevron.backward") }
-                .font(.sandoll(size: 24, weight: .regular))
-                .foregroundColor(Color(hex: "292929"))
-                .frame(
-                    maxWidth: .infinity,
-                    maxHeight: 44,
-                    alignment: .leading
-                )
             
             Text("진행 중인 멘토링을 기록하세요")
                 .font(.sandoll(size: 24, weight: .bold))
@@ -85,7 +90,8 @@ struct Record: View {
         .padding(.horizontal, 16)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(hex: "f9f9f9"))
-        
+        .navigationBarItems(leading: btnBack)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

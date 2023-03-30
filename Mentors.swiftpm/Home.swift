@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct Home: View {
-    @State private var isNavigate: Bool = false
+    @State private var isNavigateToRecord: Bool = false
+    @State private var isNavigateToSending: Bool = false
+    @State private var isNavigateToSummary: Bool = false
     
     var body: some View {
         NavigationView {
@@ -20,77 +22,47 @@ struct Home: View {
                     .padding(.top, 44)
                 
                 //진행 중인 멘토링 기록하기
-                //멘토링 시작 이후에 활성화되도록 만들어야해요
-                    Button {
-                    
+                // TODO: 멘토링 시작 이후에 활성화되도록 만들어야해요
+                NavigationLink(isActive: $isNavigateToRecord) {
+                    Record()
                 } label: {
-                    Text("진행 중인 멘토링 기록하기")
-                        .fontWeight(.bold)
-                        .font(Font.custom("Apple SD Gothic Neo", size: 20))
-                        .frame(maxWidth: 400, minHeight: 48)
-                        .background(Color(hex: "E8585E"))
-                        .foregroundColor(Color.init(hex: "f9f9f9"))
-                        .cornerRadius(10)
-                        
+                        Text("진행 중인 멘토링 기록하기")
+                            .fontWeight(.bold)
+                            .font(Font.custom("Apple SD Gothic Neo", size: 20))
+                            .frame(maxWidth: 400, minHeight: 48)
+                            .background(Color(hex: "E8585E"))
+                            .foregroundColor(Color.init(hex: "F9F9F9"))
+                            .cornerRadius(10)
+                            .padding(.top, 40)
                 }
-                .padding(.top, 40)
                 
                 //내비게이션
-                NavigationLink(isActive: $isNavigate) {
+                NavigationLink(isActive: $isNavigateToSending) {
                     Sending1()
                 } label: {
                     HomeMentoringButton(title: "내 멘토링 사연 보내기", isSelected: true, action: {
-                        isNavigate = true
+                        isNavigateToSending = true
                     })
                     .frame(width: UIScreen.main.bounds.width - 52, height: 100)
                     .cornerRadius(10)
                     .padding(.top, 68)
                 }
-                NavigationLink(isActive: $isNavigate) {
+                
+                NavigationLink(isActive: $isNavigateToSummary) {
                     Summary()
                 } label: {
                     HomeMentoringButton(title: "내 멘토링 기록 모아보기", isSelected: true, action: {
-                        isNavigate = true
+                        isNavigateToSummary = true
                     })
                     .frame(width: UIScreen.main.bounds.width - 52, height: 100)
                     .cornerRadius(10)
                     .padding(.top, 30)
                 }
                 Spacer()
-                
-//                //탭바
-//                //홈 버튼이 기본 활성화가 되어야 해요
-//                //각 버튼에서 링크 연결 필요한 것들이 있어요
-//                //왼쪽부터 [커뮤니티, 멘토 모음, 홈, 채팅, 내 정보]입니다
-//                TabView {
-//                    Text("")
-//                        .tabItem {
-//                            Image(systemName: "doc.plaintext")
-//                        }
-//                    Text("")
-//                        .tabItem {
-//                            Image(systemName: "square.on.square.badge.person.crop")
-//                        }
-//                    Text("")
-//                        .tabItem {
-//                            Image(systemName: "house")
-//                        }
-//                    Text("")
-//                        .tabItem {
-//                            NavigationLink {
-//                                Chat()
-//                            } label: {
-//                                Image(systemName: "ellipsis.message")
-//                            }
-//                        }
-//                    Text("")
-//                        .tabItem {
-//                            Image(systemName: "person.circle")
-//                        }
-//                }
             }
             .padding(.horizontal, 26)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

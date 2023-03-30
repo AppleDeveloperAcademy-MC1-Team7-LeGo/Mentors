@@ -32,7 +32,7 @@ struct Summary: View {
             
             VStack {
                 
-                Text("진행 중인 멘토링을 기록하세요")
+                Text("내 멘토링 기록 모아보기")
                     .font(.sandoll(size: 24, weight: .bold))
                     .foregroundColor(Color(hex: "292929"))
                     .frame(
