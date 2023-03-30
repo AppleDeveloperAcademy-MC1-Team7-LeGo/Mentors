@@ -161,9 +161,8 @@ struct Check: View {
                         .padding(.trailing, 15)
                         .padding(.top, 9)
                         .padding(.bottom, 9)
-                        .background(Color(hex: "F6D555"))
+                        .background(Color(hex: "FDF4D1"))
                         .cornerRadius(10)
-                        .frame(maxWidth: .infinity)
                     
                     Text("# CBL")
                         .font(.sandoll(size: 18, weight: .semibold))
@@ -173,9 +172,8 @@ struct Check: View {
                         .padding(.trailing, 15)
                         .padding(.top, 9)
                         .padding(.bottom, 9)
-                        .background(Color(hex: "F6D555"))
+                        .background(Color(hex: "FDF4D1"))
                         .cornerRadius(10)
-                        .frame(maxWidth: .infinity)
                     
                     Spacer()
                 }
