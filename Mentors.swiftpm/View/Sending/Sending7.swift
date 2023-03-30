@@ -73,7 +73,7 @@ struct Sending7View: View {
             Spacer()
         }
         .frame(width: UIScreen.main.bounds.width)
-        .background(Color(hex: "F7F5EF"))
+        .background(Color(hex: "f9f9f9"))
         .popup(isPresented: $isPopupShowing) {
             VStack(alignment: .center) {
                 Text("정말 이렇게 멘토링을 신청할까요?")
