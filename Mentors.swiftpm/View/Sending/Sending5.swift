@@ -186,6 +186,7 @@ struct SendingFiveView: View {
                         .cornerRadius(10)
                 }
             }.padding()
+                .background(Color(hex: "f9f9f9"))
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: btnBack)

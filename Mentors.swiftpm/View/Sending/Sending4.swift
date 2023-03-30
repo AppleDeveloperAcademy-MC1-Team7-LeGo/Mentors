@@ -94,6 +94,7 @@ struct SendingFourView: View {
             }
         }
         .padding(.horizontal, 30)
+        .background(Color(hex: "f9f9f9"))
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: btnBack)
     }
