@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SendingEightView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State private var isPopupShowing: Bool = false
+    
     var body: some View {
         
         ScrollView {
@@ -48,7 +50,9 @@ struct SendingEightView: View {
                     }
                     
                     // VStack-Button(4)
-                    Button(action: {}) {
+                    Button(action: {
+                        isPopupShowing = true
+                    }) {
                         HStack {
                             MentorTag(mentorKoreanName: "리이오", mentorEnglishName: "Leeo", mentorStrength: "Tech", strengthColorCode: "CEE1F3")
                         }
@@ -98,22 +102,64 @@ struct SendingEightView: View {
                     .padding(.bottom, 40)
                     
                 }
-                
-                //VStack-Button
-                Button(action:{
-                    NavigationUtil.popToRootView()
-                }) {
-                    Text("다음")
-                        .font(.sandoll(size: 18, weight: .semibold))
-                        .foregroundColor(Color(hex: "292929"))
-                        .fixedSize()
-                        .frame(width: 350, height: 48)
-                        .background(Color(hex: "F6D555"))
-                        .cornerRadius(10)
-                }
-                
             }
             .padding()
+        }
+        .popup(isPresented: $isPopupShowing) {
+            VStack(alignment: .center) {
+                Text("'리이오' 멘토에게 사연을 보낼까요?")
+                    .font(.sandoll(size: 20, weight: .semibold))
+                    .padding(.top, 55)
+                    .foregroundColor(Color(hex: "292929"))
+                Text("멘토가 해당 사연을 열람하기 전까지는\n수정이 가능해요.")
+                    .font(.sandoll(size: 16, weight: .semibold))
+                    .foregroundColor(Color(hex: "292929"))
+                    .padding(.top, 18)
+                    .multilineTextAlignment(.center)
+                
+                HStack {
+                    Button {
+                        isPopupShowing = false
+                        // TODO: pop to root view
+                    } label: {
+                        Text("네, 보낼게요")
+                            .padding(.vertical, 15)
+                            .padding(.horizontal, 12)
+                            .background(Color(hex: "F6D555"))
+                            .font(.sandoll(size: 18, weight: .semibold))
+                            .foregroundColor(Color(hex: "292929"))
+                            .cornerRadius(10)
+                    }
+                    
+                    Button {
+                        isPopupShowing = false
+                    } label: {
+                        Text("다시 고를래요")
+                            .padding(.vertical, 15)
+                            .padding(.horizontal, 12)
+                            .background(Color(hex: "E5E2D7"))
+                            .font(.sandoll(size: 18, weight: .semibold))
+                            .foregroundColor(Color(hex: "292929"))
+                            .cornerRadius(10)
+                            .padding(.leading, 15)
+                    }
+                }
+                .padding(.top, 44)
+                .padding(.bottom, 20)
+            }
+            .frame(width: UIScreen.main.bounds.width-64)
+            .frame(minHeight: 247)
+            .background(Color(hex: "F7F5EF"))
+            .cornerRadius(10)
+            .overlay {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color(hex: "F6D555"), lineWidth: 4)
+                    .background(Color("F9F9F9"))
+            }
+        } customize: {
+            $0.animation(.spring())
+                .closeOnTapOutside(true)
+                .backgroundColor(.black.opacity(0.5))
         }
         .navigationBarBackButtonHidden(true)
     }
