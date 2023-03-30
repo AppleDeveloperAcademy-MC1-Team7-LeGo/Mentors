@@ -31,7 +31,6 @@ struct Summary: View {
         VStack(spacing: 6) {
             
             VStack {
-                
                 Text("내 멘토링 기록 모아보기")
                     .font(.sandoll(size: 24, weight: .bold))
                     .foregroundColor(Color(hex: "292929"))
@@ -171,9 +170,6 @@ struct Summary: View {
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: btnBack)
-        .padding(.horizontal, 16)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(hex: "f9f9f9"))
         
     }
 }

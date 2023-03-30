@@ -36,8 +36,7 @@ struct Record: View {
     }
     
     var body: some View {
-        VStack {
-            
+        VStack {           
             Text("진행 중인 멘토링을 기록하세요")
                 .font(.sandoll(size: 24, weight: .bold))
                 .foregroundColor(Color(hex: "292929"))

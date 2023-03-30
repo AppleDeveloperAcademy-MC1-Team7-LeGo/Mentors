@@ -114,7 +114,6 @@ struct SendingFourView: View {
                     .font(.sandoll(size: 12, weight: .regular))
                     .foregroundColor(Color(hex: "292929"))
             }
-            
             Spacer()
         
             // VStack-Button

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SendingEightView: View {
-    
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         

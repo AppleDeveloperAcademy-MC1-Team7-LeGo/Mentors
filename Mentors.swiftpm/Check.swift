@@ -171,7 +171,6 @@ struct Check: View {
             .padding(.bottom, 30)
             
             HStack {
-                
                 VStack {
                     NavigationLink(destination: Sending7View()) {
                         customDoneButton(buttonName: "작성 완료", background_hex: "f6d555", foreground_hex: "292929")
