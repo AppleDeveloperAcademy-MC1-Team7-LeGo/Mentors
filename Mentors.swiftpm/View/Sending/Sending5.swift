@@ -33,8 +33,8 @@ struct SendingFiveView: View {
                 // VStack-Group-하나의 Stack에 최대 10개 뷰만 가능해서 Group으로 묶음.
                 Group {
                     // VStack-Group-HStack(1)
-                    HStack {
-                        Button(action:{}) {
+                    HStack { Button(action:{
+                    }) {
                             Image(systemName: "pencil.tip")
                                 .resizable()
                                 .frame(width: 20, height: 27)
