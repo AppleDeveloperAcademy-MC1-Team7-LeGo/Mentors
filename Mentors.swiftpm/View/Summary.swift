@@ -39,14 +39,16 @@ struct Summary: View {
                     .foregroundColor(Color(hex: "292929"))
                     .frame(
                         maxWidth: .infinity,
-                        maxHeight: 80,
+                        maxHeight: 60,
                         alignment: .leading
                     )
                 
             }
-            .padding(.bottom, 26)
+            .padding(.bottom, 10)
             .padding(.horizontal, 16)
-            .padding(.top, 20)
+            .padding(.top, 18)
+            
+            Spacer()
             
             // 멘토 프로필 섹션
             HStack {
@@ -162,7 +164,7 @@ struct Summary: View {
                         .font(.sandoll(size: 14, weight: .medium))
                         .foregroundColor(Color(hex: "292929"))
                         .multilineTextAlignment(.leading)
-                        .frame(height: 200)
+                        .frame(height: 240)
                     
                     Text(feedback ?? feedbackPlaceHolder)
                         .offset(x: 16, y: 19)
