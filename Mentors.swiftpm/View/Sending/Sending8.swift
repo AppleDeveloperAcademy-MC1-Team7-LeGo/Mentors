@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct SendingEightView: View {
-    @Environment(\.presentationMode) var presentationMode
     @State private var isPopupShowing: Bool = false
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var btnBack : some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+            
+        }) {
+            HStack {
+                Image(systemName: "chevron.backward")
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
+            }
+        }
+    }
     
     var body: some View {
         
@@ -24,7 +38,7 @@ struct SendingEightView: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color(hex: "292929"))
                     .multilineTextAlignment(.leading)
-                    .padding(.bottom, 50)
+                    .padding(.bottom, 36)
                 
                 // VStack-Group-하나의 Stack에 최대 10개 뷰만 가능해서 Group으로 묶음.
                 Group {
@@ -99,7 +113,34 @@ struct SendingEightView: View {
                             MentorTag(mentorKoreanName: "영", mentorEnglishName: "Young", mentorStrength: " Tech     ", strengthColorCode: "CEE1F3")
                         }
                     }
-                    .padding(.bottom, 40)
+                    
+//                    // VStack-Button(11)
+//                    Button(action: {}) {
+//                        HStack {
+//                            MentorTag(mentorKoreanName: "이안", mentorEnglishName: "Ian", mentorStrength: " Design ", strengthColorCode: "DAEEC6")
+//                        }
+//                    }
+//
+//                    // VStack-Button(12)
+//                    Button(action: {}) {
+//                        HStack {
+//                            MentorTag(mentorKoreanName: "제이슨", mentorEnglishName: "Jason", mentorStrength: " Tech     ", strengthColorCode: "CEE1F3")
+//                        }
+//                    }
+//
+//                    // VStack-Button(13)
+//                    Button(action: {}) {
+//                        HStack {
+//                            MentorTag(mentorKoreanName: "주디", mentorEnglishName: "Judy", mentorStrength: " Tech     ", strengthColorCode: "CEE1F3")
+//                        }
+//                    }
+//
+//                    // VStack-Button(14)
+//                    Button(action: {}) {
+//                        HStack {
+//                            MentorTag(mentorKoreanName: "지쿠", mentorEnglishName: "Jiku", mentorStrength: " Design ", strengthColorCode: "DAEEC6")
+//                        }
+//                    }
                     
                 }
             }
@@ -162,5 +203,6 @@ struct SendingEightView: View {
                 .backgroundColor(.black.opacity(0.5))
         }
         .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: btnBack)
     }
 }

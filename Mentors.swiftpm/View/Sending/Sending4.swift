@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct SendingFourView: View {
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var btnBack : some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+            
+        }) {
+            HStack {
+                Image(systemName: "chevron.backward")
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
+            }
+        }
+    }
+    
     var body: some View {
-
         
         // 좌로 정렬 VStack
         VStack {
@@ -80,6 +95,7 @@ struct SendingFourView: View {
         }
         .padding(.horizontal, 30)
         .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: btnBack)
     }
 }
 
