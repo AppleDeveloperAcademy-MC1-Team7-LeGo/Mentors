@@ -9,8 +9,9 @@ import SwiftUI
 
 struct Nextbutton: View {
     var title: String
-    @State var isAbled: Bool
-//    var action: () -> Void
+//    @State
+    var isAbled: Bool
+    var action: () -> Void
     
     init(
         title: String,
@@ -19,12 +20,12 @@ struct Nextbutton: View {
     ) {
         self.title = title
         self.isAbled = isAbled
-//        self.action = action
+        self.action = action
     }
     
     var body: some View {
         Button {
-//            action()
+            action()
         } label: {
             HStack {
                 Spacer()
@@ -43,13 +44,14 @@ struct Nextbutton: View {
                     .stroke(isAbled ? Color.init(hex: "F6D555") : Color.init(hex: "E5E2D7"), lineWidth: 1.2)
             }
         }
-        .disabled(isAbled)
+        //NextButton이 동작하지 않았던 이유 : .disabled(isAbled)가 NextButton 컴포넌트 안에 존재하지 않았음. 수정 과정에서 .disabled()가 Sending1에 직접 들어가있었음.
+        .disabled(!isAbled)
     }
 }
 
 struct Nextbutton_Previews: PreviewProvider {
     static var previews: some View {
-        Nextbutton(title: "다음", isAbled: false) {
+        Nextbutton(title: "다음", isAbled: true) {
             print("")
         }
     }
