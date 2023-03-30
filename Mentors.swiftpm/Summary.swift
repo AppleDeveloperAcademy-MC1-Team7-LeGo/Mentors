@@ -45,7 +45,7 @@ struct Summary: View {
             .padding(.bottom, 30)
             
             HStack {
-                Image(uiImage: #imageLiteral(resourceName: "Leeo_LinkedIn_Profile_Image.jpeg"))
+                Image(uiImage: #imageLiteral(resourceName: "Leeo"))
                     .resizable()
                     .frame(width: 60, height: 60)
                     .clipShape(Circle())
