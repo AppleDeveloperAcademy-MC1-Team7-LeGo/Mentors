@@ -20,6 +20,7 @@ struct Chat: View {
                                        "calendar": "캘린더"]
     @State private var showNextMessage: Int = 0
     @State private var showTabBarButton: Bool = false
+    @Binding var isShowRecordButton: Bool
     
     private let avPlayer: [AVPlayer] = [
         AVPlayer(url:  Bundle.main.url(forResource: "chat1", withExtension: "mp4")!),
@@ -29,8 +30,7 @@ struct Chat: View {
     func toggleButtons() {
         focusMessageField = false
     }
-    
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     var btnBack : some View {
         Button(action: {
             showTabBarButton = true
@@ -38,7 +38,7 @@ struct Chat: View {
             HStack {
                 Image(systemName: "chevron.backward")
                     .aspectRatio(contentMode: .fit)
-                    .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
+                    .foregroundColor(.black)
             }
         }
     }
@@ -75,7 +75,7 @@ struct Chat: View {
                         Spacer()
                     }
                     .padding(.leading, 16)
-                    .padding(.bottom, 24)
+                    .padding(.vertical, 24)
                     
                     // LeGo's chat
                     if showNextMessage >= 1 {
@@ -88,7 +88,7 @@ struct Chat: View {
                                         .font(.sandoll(size: 10, weight: .medium))
                                         .foregroundColor(Color(hex: "292929"))
                                         .padding(.trailing, 5)
-                                    Text("안녕하세요, Leeo. 저희의 사연에 응답해 주셔서 감사합니다. 저희는 지금 콜랩에 있습니다. 지금 당장 가능합니다.")
+                                    Text("안녕하세요, Leeo. 저희의 사연에 응답해 주셔서 감사합니다. 저희는 지금 콜랩1에 있습니다. 지금 당장 가능합니다.")
                                         .font(.sandoll(size: 14, weight: .medium))
                                         .padding(.vertical, 5)
                                         .padding(.horizontal, 11)
@@ -107,9 +107,9 @@ struct Chat: View {
                     if showNextMessage >= 2 {
                         HStack {
                             HStack {
-                                Circle()
+                                Image("Leeo")
                                     .frame(width: 48, height: 48)
-                                    .foregroundColor(Color(hex: "D9D9D9"))
+                                    .cornerRadius(24)
                                 
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text("리이오")
@@ -159,6 +159,19 @@ struct Chat: View {
                                 Text("(와)과 멘토링 약속을 잡았어요.")
                                     .font(.sandoll(size: 14, weight: .medium))
                                     .foregroundColor(Color(hex: "292929"))
+                                
+                                Spacer()
+                                
+                                NavigationLink {
+                                    MentoringWithLeeo()
+                                } label: {
+                                    Image(systemName: "play.circle.fill")
+                                        .symbolRenderingMode(.palette)
+                                        .foregroundStyle(.white, Color(hex: "F6D555"))
+                                        .font(.sandoll(size: 25, weight: .medium))
+                                        .padding(.trailing, 10
+                                        )
+                                }
                             }
                             .padding(.leading, 28)
                         }
@@ -233,11 +246,14 @@ struct Chat: View {
                                             showNextMessage += 1
                                             if showNextMessage == 1 {
                                                 avPlayer[0].pause()
+                                                avPlayer[1].seek(to: .zero)
                                                 avPlayer[1].play()
                                                 avPlayer[2].pause()
                                             } else if showNextMessage >= 2 {
+                                                self.isShowRecordButton = true
                                                 avPlayer[0].pause()
                                                 avPlayer[1].pause()
+                                                avPlayer[2].seek(to: .zero)
                                                 avPlayer[2].play()
                                             }
                                         } label: {
@@ -279,21 +295,18 @@ struct Chat: View {
             }
             .ignoresSafeArea()
             .onAppear {
+                avPlayer[0].seek(to: .zero)
                 avPlayer[0].play()
                 avPlayer[1].pause()
                 avPlayer[2].pause()
             }
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: btnBack)
+            .navigationBarTitle("리이오", displayMode: .inline)
+            .navigationBarItems(trailing: Image(systemName: "pencil.circle").foregroundColor( showNextMessage >= 2 ? .black : .clear))
             .toolbar(showTabBarButton ? .visible : .hidden, for: .tabBar)
         } else {
             // Fallback on earlier versions
         }
-    }
-}
-
-struct Chat_Previews: PreviewProvider {
-    static var previews: some View {
-        Chat()
     }
 }
