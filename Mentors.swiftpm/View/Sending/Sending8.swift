@@ -26,7 +26,6 @@ struct SendingEightView: View {
     }
     
     var body: some View {
-        
         ScrollView {
             
             // 좌로 정렬 VStack
