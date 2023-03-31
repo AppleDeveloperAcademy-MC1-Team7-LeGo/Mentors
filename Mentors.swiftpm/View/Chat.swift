@@ -22,7 +22,7 @@ struct Chat: View {
     @State private var showTabBarButton: Bool = false
     @Binding var isShowRecordButton: Bool
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+//    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     private let avPlayer: [AVPlayer] = [
         AVPlayer(url:  Bundle.main.url(forResource: "chat1", withExtension: "mp4")!),
@@ -36,7 +36,7 @@ struct Chat: View {
     var btnBack : some View {
         Button(action: {
             showTabBarButton = true
-            self.presentationMode.wrappedValue.dismiss()
+//            self.presentationMode.wrappedValue.dismiss()
         }) {
             HStack {
                 Image(systemName: "chevron.backward")
@@ -138,9 +138,9 @@ struct Chat: View {
                         .padding(.bottom, 24)
                         .animation(.easeIn)
                         
-                    }
-                    
-                    if showNextMessage >= 3 {
+//                    }
+//
+//                    if showNextMessage >= 3 {
                         // schedule
                         VStack(alignment: .leading) {
                             HStack {
@@ -255,15 +255,16 @@ struct Chat: View {
                                                 avPlayer[1].play()
                                                 avPlayer[2].pause()
                                             } else if showNextMessage >= 2 {
+                                                self.isShowRecordButton = true
                                                 avPlayer[0].pause()
                                                 avPlayer[1].pause()
                                                 avPlayer[2].seek(to: .zero)
                                                 avPlayer[2].play()
-                                            } else if showNextMessage >= 3 {
-                                                self.isShowRecordButton = true
-                                                avPlayer[0].pause()
-                                                avPlayer[1].pause()
-                                                avPlayer[2].pause()
+//                                            } else if showNextMessage >= 3 {
+//                                                self.isShowRecordButton = true
+//                                                avPlayer[0].pause()
+//                                                avPlayer[1].pause()
+//                                                avPlayer[2].pause()
                                             }
                                         } label: {
                                             Image(systemName: "paperplane")
@@ -316,7 +317,7 @@ struct Chat: View {
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: btnBack)
             .navigationBarTitle("리이오", displayMode: .inline)
-            .navigationBarItems(trailing: Image(systemName: "pencil.circle").foregroundColor( showNextMessage >= 3 ? .black : .clear))
+            .navigationBarItems(trailing: Image(systemName: "pencil.circle").foregroundColor( showNextMessage >= 2 ? .black : .clear))
             .toolbar(showTabBarButton ? .visible : .hidden, for: .tabBar)
         } else {
             // Fallback on earlier versions
