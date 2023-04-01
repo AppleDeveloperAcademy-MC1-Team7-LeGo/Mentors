@@ -1,5 +1,5 @@
 ## ✨ LeGo
-Leeo + LingGo
+Leeo + LinGo
 
 ## 👥 Team Member
 | Berry | GaOn | Jay | ZENA |
