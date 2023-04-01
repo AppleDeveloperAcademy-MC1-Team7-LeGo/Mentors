@@ -8,22 +8,6 @@
 import SwiftUI
 
 struct SendingFourView: View {
-    
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    var btnBack : some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-            
-        }) {
-            HStack {
-                Image(systemName: "chevron.backward")
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
-            }
-        }
-    }
-    
     var body: some View {
         
         // 좌로 정렬 VStack
@@ -96,9 +80,8 @@ struct SendingFourView: View {
         .padding(.horizontal, 30)
         .background(Color(hex: "f9f9f9"))
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: btnBack)
+        .navigationBarItems(leading: BackButton())
     }
 }
 
- // TODO: 1. Button 비슷한 틀을 한 번에 묶을 수 있는지
  // TODO: 2. Button Click Animation 효과시 색상 변경

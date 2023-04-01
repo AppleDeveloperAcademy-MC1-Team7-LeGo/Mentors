@@ -21,20 +21,6 @@ struct Record: View {
             .cornerRadius(10)
         )
     }
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    var btnBack : some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-            
-        }) {
-            HStack {
-                Image(systemName: "chevron.backward")
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
-            }
-        }
-    }
     
     var body: some View {
 
@@ -92,7 +78,7 @@ struct Record: View {
         .padding(.horizontal, 16)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(hex: "f9f9f9"))
-        .navigationBarItems(leading: btnBack)
+        .navigationBarItems(leading: BackButton())
         .navigationBarBackButtonHidden(true)
 
     }

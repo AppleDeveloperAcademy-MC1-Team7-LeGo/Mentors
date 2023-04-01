@@ -13,18 +13,6 @@ struct Sending2: View {
     @State private var text: String = ""
     @State private var navigationIsActive: Bool = false
     
-    var btnBack : some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-            
-        }) {
-            HStack {
-                Image(systemName: "chevron.backward")
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
-            }
-        }
-    }
     
     
     var body: some View {
@@ -54,7 +42,7 @@ struct Sending2: View {
             .background(Color.init(hex: "F9F9F9"))
         }
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: btnBack)
+        .navigationBarItems(leading: BackButton())
         
         .background(EmptyNavigationLink(isActive: $navigationIsActive, {
             Sending3()
