@@ -18,21 +18,6 @@ struct Sending1: View {
     @State private var teamName: String = .init()
     @State private var navigationIsActive: Bool = false
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    var btnBack : some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-            
-        }) {
-            HStack {
-                Image(systemName: "chevron.backward")
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
-            }
-        }
-    }
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("누가 보내는 사연인가요?")
@@ -84,7 +69,7 @@ struct Sending1: View {
             Sending2()
         }))
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: btnBack)
+        .navigationBarItems(leading: BackButton())
     }
 }
 

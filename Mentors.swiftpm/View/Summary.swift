@@ -11,21 +11,6 @@ struct Summary: View {
     
     @State private var feedback: String?
     @State private var feedbackPlaceHolder: String = "멘토링 후기를 입력하세요."
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    var btnBack : some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-            
-        }) {
-            HStack {
-                Image(systemName: "chevron.backward")
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(Color(red: 0.1607843137254902, green: 0.1607843137254902, blue: 0.1607843137254902))
-            }
-        }
-    }
-
     
     var body: some View {
         
@@ -181,7 +166,7 @@ struct Summary: View {
         }
         .background(Color(hex: "f9f9f9"))
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: btnBack)
+        .navigationBarItems(leading: BackButton())
         
     }
 }
